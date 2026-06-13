@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Lume color tokens ─────────────────────── */
+  --color-ink: #0a0a0a;
+  --color-paper: #fafafa;
+  --color-graphite: #161616;
+  --color-smoke: #737373;
+  --color-ash: #a3a3a3;
+  --color-bone: #e5e5e5;
+  --color-mist: #f4f4f4;
+  --color-signal: #d7ff1a; /* reserved for live/online status only */
+
+  /* ── Typography ─────────────────────────────── */
+  --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --font-display: "Geist", ui-sans-serif, system-ui, sans-serif;
+
+  /* ── Spacing & rhythm ───────────────────────── */
+  --spacing-section: 8rem;
+
+  /* ── Animation ──────────────────────────────── */
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-blink: blink 1s steps(2) infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes blink {
+  0%, 50%   { opacity: 1; }
+  50.01%, 100% { opacity: 0; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Base ─────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "ss02", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+
+/* Tighter headlines */
+h1, h2, h3 {
+  letter-spacing: -0.025em;
+  font-feature-settings: "ss01";
+}
+
+/* Hide scrollbar on marquee */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
