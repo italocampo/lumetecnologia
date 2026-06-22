@@ -1,3 +1,5 @@
+import { FadeIn } from "./FadeIn";
+
 const CLIENTS = [
   "Dilady Lingerie",
   "Banho de Mar",
@@ -9,8 +11,8 @@ const CLIENTS = [
 ];
 
 export function Clients() {
-  // duplicado para marquee contínuo
-  const loop = [...CLIENTS, ...CLIENTS];
+  // Triplicado para garantir loop contínuo sem gaps visíveis
+  const loop = [...CLIENTS, ...CLIENTS, ...CLIENTS];
 
   return (
     <section
@@ -19,35 +21,42 @@ export function Clients() {
     >
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-14">
-          <div>
-            <div className="flex items-center gap-3 mb-5">
-              <span className="font-mono text-[11px] tracking-[0.22em] text-white/50">
-                ⌘ CLIENTES
-              </span>
-              <span className="h-px w-12 bg-white/15" />
+          <FadeIn>
+            <div>
+              <div className="flex items-center gap-3 mb-5">
+                <span className="font-mono text-[11px] tracking-[0.22em] text-white/50">
+                  ⌘ CLIENTES
+                </span>
+                <span className="h-px w-12 bg-white/15" />
+              </div>
+              <h2 className="font-display text-[clamp(1.85rem,4vw,3.25rem)] font-semibold tracking-tight leading-[1.05] max-w-2xl">
+                Empresas que já entregaram
+                <br />
+                <span className="text-white/55">
+                  o atendimento para a Lume.
+                </span>
+              </h2>
             </div>
-            <h2 className="font-display text-[clamp(1.85rem,4vw,3.25rem)] font-semibold tracking-tight leading-[1.05] max-w-2xl">
-              Empresas que já entregaram
-              <br />
-              <span className="text-white/55">o atendimento para a Lume.</span>
-            </h2>
-          </div>
-          <p className="font-mono text-[12px] tracking-wide text-white/55 max-w-xs">
-            De varejo a serviços, da industria a concessionárias — a Lume se
-            adapta ao vocabulário do seu negócio.
-          </p>
+          </FadeIn>
+
+          <FadeIn delay={120}>
+            <p className="font-mono text-[12px] tracking-wide text-white/55 max-w-xs">
+              De varejo a serviços, da indústria a concessionárias — a Lume se
+              adapta ao vocabulário do seu negócio.
+            </p>
+          </FadeIn>
         </div>
       </div>
 
-      {/* Marquee */}
+      {/* Marquee — pausa no hover */}
       <div
-        className="relative"
+        className="relative group"
         style={{
           maskImage:
             "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
         }}
       >
-        <div className="flex w-max animate-[marquee_40s_linear_infinite] gap-12 sm:gap-20">
+        <div className="flex w-max animate-[marquee_40s_linear_infinite] group-hover:[animation-play-state:paused] gap-12 sm:gap-20">
           {loop.map((name, i) => (
             <div
               key={`${name}-${i}`}

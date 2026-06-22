@@ -1,5 +1,7 @@
+import { FadeIn } from "./FadeIn";
+
 const WHATSAPP_URL = "https://wa.me/5585994108087?text=Ol%C3%A1%20Lume!";
-const EMAIL = "lumetecnologia.br@gmail.com ";
+const EMAIL = "lumetecnologia.br@gmail.com";
 
 export function FinalCTA() {
   return (
@@ -7,71 +9,99 @@ export function FinalCTA() {
       id="contato"
       className="relative py-28 sm:py-36 bg-ink text-paper overflow-hidden"
     >
-      {/* glow muito sutil */}
+      {/* Glow base — sempre visível, sutil */}
       <div
         aria-hidden
-        className="absolute inset-0 opacity-25 pointer-events-none"
+        className="absolute inset-0 pointer-events-none"
         style={{
           backgroundImage:
-            "radial-gradient(ellipse 60% 40% at 50% 100%, rgba(215,255,26,0.10), transparent 70%)",
+            "radial-gradient(ellipse 70% 50% at 50% 110%, rgba(215,255,26,0.07), transparent 70%)",
+        }}
+      />
+
+      {/* Glow superior — arco invertido discreto */}
+      <div
+        aria-hidden
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            "radial-gradient(ellipse 40% 30% at 50% -10%, rgba(255,255,255,0.04), transparent 70%)",
         }}
       />
 
       <div className="relative mx-auto max-w-5xl px-6 lg:px-10 text-center">
-        <div className="flex items-center justify-center gap-3 mb-8">
-          <span className="h-px w-10 bg-white/15" />
-          <span className="font-mono text-[11px] tracking-[0.22em] text-white/50">
-            VAMOS COMEÇAR
-          </span>
-          <span className="h-px w-10 bg-white/15" />
-        </div>
+        {/* Eyebrow */}
+        <FadeIn>
+          <div className="flex items-center justify-center gap-3 mb-8">
+            <span className="h-px w-10 bg-white/15" />
+            <span className="font-mono text-[11px] tracking-[0.22em] text-white/50">
+              VAMOS COMEÇAR
+            </span>
+            <span className="h-px w-10 bg-white/15" />
+          </div>
+        </FadeIn>
 
-        <h2 className="font-display text-[clamp(2.25rem,6vw,5rem)] font-semibold tracking-tight leading-[0.98]">
-          Sua empresa precisa
-          <br />
-          <span className="text-white/55">estar disponível 24/7.</span>
-          <br />A Lume já está.
-        </h2>
+        {/* Headline */}
+        <FadeIn delay={80}>
+          <h2 className="font-display text-[clamp(2.25rem,6vw,5rem)] font-semibold tracking-tight leading-[0.98]">
+            Sua empresa precisa
+            <br />
+            <span className="text-white/50">estar disponível 24/7.</span>
+            <br />A Lume já está.
+          </h2>
+        </FadeIn>
 
-        <p className="mt-8 mx-auto max-w-xl text-white/65 text-[16.5px] leading-relaxed">
-          Conte para a gente o que sua operação precisa. Em uma conversa rápida
-          desenhamos o caminho — IA, sistema, site ou tudo junto.
-        </p>
+        {/* Subtítulo */}
+        <FadeIn delay={160}>
+          <p className="mt-8 mx-auto max-w-xl text-white/60 text-[16.5px] leading-relaxed">
+            Conte para a gente o que sua operação precisa. Em uma conversa
+            rápida desenhamos o caminho — IA, sistema, site ou tudo junto.
+          </p>
+        </FadeIn>
 
-        <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
-          <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2.5 rounded-full bg-paper text-ink px-7 py-4 text-sm font-semibold hover:bg-white transition-all"
-          >
-            <WhatsappIcon />
-            Falar pelo WhatsApp
-            <svg
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="transition-transform group-hover:translate-x-1"
+        {/* CTAs */}
+        <FadeIn delay={240}>
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
+            {/* Botão principal — glow signal no hover */}
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative inline-flex items-center gap-2.5 rounded-full bg-paper text-ink px-7 py-4 text-sm font-semibold transition-all duration-300 hover:bg-white hover:shadow-[0_0_32px_rgba(215,255,26,0.35)]"
             >
-              <path d="M5 12h14M13 5l7 7-7 7" />
-            </svg>
-          </a>
-          <a
-            href={`mailto:${EMAIL}`}
-            className="inline-flex items-center gap-2 rounded-full border border-white/20 px-7 py-4 text-sm font-medium hover:border-white/60 transition-colors"
-          >
-            {EMAIL}
-          </a>
-        </div>
+              <WhatsappIcon />
+              Falar pelo WhatsApp
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="transition-transform duration-300 group-hover:translate-x-1"
+              >
+                <path d="M5 12h14M13 5l7 7-7 7" />
+              </svg>
+            </a>
 
-        <div className="mt-12 font-mono text-[11px] tracking-[0.2em] text-white/35">
-          ⌘ RESPOSTA EM ATÉ 24H ÚTEIS
-        </div>
+            {/* Botão secundário — email */}
+            <a
+              href={`mailto:${EMAIL}`}
+              className="inline-flex items-center gap-2 rounded-full border border-white/20 px-7 py-4 text-sm font-medium text-white/80 hover:border-white/50 hover:text-white transition-all duration-300"
+            >
+              {EMAIL}
+            </a>
+          </div>
+        </FadeIn>
+
+        {/* Rodapé da seção */}
+        <FadeIn delay={320}>
+          <div className="mt-12 font-mono text-[11px] tracking-[0.2em] text-white/30">
+            ⌘ RESPOSTA EM ATÉ 24H ÚTEIS
+          </div>
+        </FadeIn>
       </div>
     </section>
   );

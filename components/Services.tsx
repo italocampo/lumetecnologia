@@ -1,3 +1,5 @@
+import { FadeIn } from "./FadeIn";
+
 type Service = {
   id: string;
   kicker: string;
@@ -67,59 +69,60 @@ export function Services() {
     <section id="servicos" className="py-24 sm:py-32 bg-paper">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         {/* Section header */}
-        <div className="mb-16 sm:mb-20 max-w-3xl">
-          <div className="flex items-center gap-3 mb-6">
-            <span className="font-mono text-[11px] tracking-[0.22em] text-smoke">
-              ⌘ SERVIÇOS
-            </span>
-            <span className="h-px flex-1 bg-bone" />
+        <FadeIn>
+          <div className="mb-16 sm:mb-20 max-w-3xl">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="font-mono text-[11px] tracking-[0.22em] text-smoke">
+                ⌘ SERVIÇOS
+              </span>
+              <span className="h-px flex-1 bg-bone" />
+            </div>
+            <h2 className="font-display text-[clamp(2rem,4.5vw,3.5rem)] font-semibold tracking-tight leading-[1.02]">
+              Quatro maneiras de a Lume
+              <br />
+              <span className="text-smoke">trabalhar pelo seu negócio.</span>
+            </h2>
           </div>
-          <h2 className="font-display text-[clamp(2rem,4.5vw,3.5rem)] font-semibold tracking-tight leading-[1.02]">
-            Quatro maneiras de a Lume
-            <br />
-            <span className="text-smoke">trabalhar pelo seu negócio.</span>
-          </h2>
-        </div>
+        </FadeIn>
 
         {/* Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-bone border border-bone rounded-3xl overflow-hidden">
-          {SERVICES.map((s) => (
-            <article
-              key={s.id}
-              className="group bg-paper p-8 sm:p-10 lg:p-12 hover:bg-mist/60 transition-colors duration-300"
-            >
-              <header className="flex items-baseline justify-between mb-8">
-                <span className="font-mono text-xs tracking-[0.18em] text-ash">
-                  {s.kicker}
-                </span>
-                <code className="font-mono text-[11px] tracking-tight text-smoke bg-mist px-2.5 py-1 rounded-full">
-                  {s.command}
-                </code>
-              </header>
+          {SERVICES.map((s, i) => (
+            <FadeIn key={s.id} delay={i * 80}>
+              <article className="group bg-paper p-8 sm:p-10 lg:p-12 hover:bg-mist/60 transition-colors duration-300 h-full">
+                <header className="flex items-baseline justify-between mb-8">
+                  <span className="font-mono text-xs tracking-[0.18em] text-ash">
+                    {s.kicker}
+                  </span>
+                  <code className="font-mono text-[11px] tracking-tight text-smoke bg-mist px-2.5 py-1 rounded-full">
+                    {s.command}
+                  </code>
+                </header>
 
-              <h3 className="font-display text-2xl sm:text-[28px] font-semibold tracking-tight leading-tight mb-4">
-                {s.title}
-              </h3>
+                <h3 className="font-display text-2xl sm:text-[28px] font-semibold tracking-tight leading-tight mb-4">
+                  {s.title}
+                </h3>
 
-              <p className="text-graphite leading-relaxed mb-7 max-w-md">
-                {s.desc}
-              </p>
+                <p className="text-graphite leading-relaxed mb-7 max-w-md">
+                  {s.desc}
+                </p>
 
-              <ul className="space-y-2.5">
-                {s.bullets.map((b) => (
-                  <li
-                    key={b}
-                    className="flex items-start gap-3 text-[14.5px] text-graphite"
-                  >
-                    <span
-                      aria-hidden
-                      className="mt-2 h-px w-3 shrink-0 bg-ink/70"
-                    />
-                    <span>{b}</span>
-                  </li>
-                ))}
-              </ul>
-            </article>
+                <ul className="space-y-2.5">
+                  {s.bullets.map((b) => (
+                    <li
+                      key={b}
+                      className="flex items-start gap-3 text-[14.5px] text-graphite"
+                    >
+                      <span
+                        aria-hidden
+                        className="mt-2 h-px w-3 shrink-0 bg-ink/70"
+                      />
+                      <span>{b}</span>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            </FadeIn>
           ))}
         </div>
       </div>
