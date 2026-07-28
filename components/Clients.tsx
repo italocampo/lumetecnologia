@@ -1,6 +1,6 @@
 import { FadeIn } from "./FadeIn";
 
-const CLIENTS = ["Dilady Lingerie", "Love Secret", "FC Motos"];
+const CLIENTS = ["FC Motos", "GT Barbearia", "Dilady Lingerie", "Love Secret"];
 
 export function Clients() {
   // Triplicado para garantir loop contínuo sem gaps visíveis
