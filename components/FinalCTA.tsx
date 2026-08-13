@@ -1,18 +1,16 @@
 import { FadeIn } from "./FadeIn";
-
-const WHATSAPP_URL = "https://wa.me/5585994108087?text=Ol%C3%A1%20Lume!";
-const EMAIL = "lumetecnologia.br@gmail.com";
+import { EMAIL, WHATSAPP_URL } from "@/lib/site";
 
 export function FinalCTA() {
   return (
     <section
       id="contato"
-      className="relative py-28 sm:py-36 bg-ink text-paper overflow-hidden"
+      className="relative grain on-dark py-28 sm:py-36 bg-ink text-paper overflow-hidden"
     >
-      {/* Glow base — sempre visível, sutil */}
+      {/* Glow base — respira lentamente, sem chamar atenção */}
       <div
         aria-hidden
-        className="absolute inset-0 pointer-events-none"
+        className="absolute inset-0 pointer-events-none animate-aurora"
         style={{
           backgroundImage:
             "radial-gradient(ellipse 70% 50% at 50% 110%, rgba(215,255,26,0.07), transparent 70%)",
@@ -29,20 +27,26 @@ export function FinalCTA() {
         }}
       />
 
+      {/* Luz rasante nas bordas da seção */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-white/15 to-transparent"
+      />
+
       <div className="relative mx-auto max-w-5xl px-6 lg:px-10 text-center">
         {/* Eyebrow */}
         <FadeIn>
           <div className="flex items-center justify-center gap-3 mb-8">
-            <span className="h-px w-10 bg-white/15" />
+            <span className="h-px w-10 bg-linear-to-r from-transparent to-white/25" />
             <span className="font-mono text-[11px] tracking-[0.22em] text-white/50">
               VAMOS COMEÇAR
             </span>
-            <span className="h-px w-10 bg-white/15" />
+            <span className="h-px w-10 bg-linear-to-l from-transparent to-white/25" />
           </div>
         </FadeIn>
 
         {/* Headline */}
-        <FadeIn delay={80}>
+        <FadeIn delay={90}>
           <h2 className="font-display text-[clamp(2.25rem,6vw,5rem)] font-semibold tracking-tight leading-[0.98]">
             Sua empresa precisa
             <br />
@@ -52,7 +56,7 @@ export function FinalCTA() {
         </FadeIn>
 
         {/* Subtítulo */}
-        <FadeIn delay={160}>
+        <FadeIn delay={180}>
           <p className="mt-8 mx-auto max-w-xl text-white/60 text-[16.5px] leading-relaxed">
             Conte para a gente o que sua operação precisa. Em uma conversa
             rápida desenhamos o caminho — IA, sistema, site ou tudo junto.
@@ -60,19 +64,30 @@ export function FinalCTA() {
         </FadeIn>
 
         {/* CTAs */}
-        <FadeIn delay={240}>
+        <FadeIn delay={270}>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
-            {/* Botão principal — glow signal no hover */}
+            {/* Botão principal — halo signal no hover */}
             <a
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
               data-umami-event="WhatsApp Click"
               data-umami-event-location="final-cta"
-              className="group relative inline-flex items-center gap-2.5 rounded-full bg-paper text-ink px-7 py-4 text-sm font-semibold transition-all duration-300 hover:bg-white hover:shadow-[0_0_32px_rgba(215,255,26,0.35)]"
+              className={[
+                "group relative inline-flex items-center gap-2.5 overflow-hidden rounded-full",
+                "bg-paper text-ink px-7 py-4 text-sm font-semibold",
+                "transition-all duration-400 ease-out-quint",
+                "hover:bg-white hover:-translate-y-0.5 hover:shadow-[0_0_38px_rgba(215,255,26,0.32)]",
+                "active:translate-y-0 active:scale-[0.98]",
+              ].join(" ")}
             >
+              {/* Brilho que varre o botão ao passar o mouse */}
+              <span
+                aria-hidden
+                className="pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 -skew-x-12 bg-ink/5 opacity-0 transition-all duration-700 ease-out-expo group-hover:left-[110%] group-hover:opacity-100"
+              />
               <WhatsappIcon />
-              Falar pelo WhatsApp
+              <span className="relative">Falar pelo WhatsApp</span>
               <svg
                 width="14"
                 height="14"
@@ -82,7 +97,8 @@ export function FinalCTA() {
                 strokeWidth="2.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                className="transition-transform duration-300 group-hover:translate-x-1"
+                aria-hidden="true"
+                className="relative transition-transform duration-400 ease-out-quint group-hover:translate-x-1"
               >
                 <path d="M5 12h14M13 5l7 7-7 7" />
               </svg>
@@ -91,7 +107,13 @@ export function FinalCTA() {
             {/* Botão secundário — email */}
             <a
               href={`mailto:${EMAIL}`}
-              className="inline-flex items-center gap-2 rounded-full border border-white/20 px-7 py-4 text-sm font-medium text-white/80 hover:border-white/50 hover:text-white transition-all duration-300"
+              className={[
+                "inline-flex items-center gap-2 rounded-full border border-white/20 px-7 py-4",
+                "text-sm font-medium text-white/80",
+                "transition-all duration-400 ease-out-quint",
+                "hover:border-white/50 hover:bg-white/5 hover:text-white hover:-translate-y-0.5",
+                "active:translate-y-0 active:scale-[0.98]",
+              ].join(" ")}
             >
               {EMAIL}
             </a>
@@ -99,7 +121,7 @@ export function FinalCTA() {
         </FadeIn>
 
         {/* Rodapé da seção */}
-        <FadeIn delay={320}>
+        <FadeIn delay={360}>
           <div className="mt-12 font-mono text-[11px] tracking-[0.2em] text-white/30">
             ⌘ RESPOSTA EM ATÉ 24H ÚTEIS
           </div>
@@ -117,6 +139,7 @@ function WhatsappIcon() {
       viewBox="0 0 24 24"
       fill="currentColor"
       aria-hidden="true"
+      className="relative transition-transform duration-500 ease-spring group-hover:scale-110"
     >
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413" />
     </svg>

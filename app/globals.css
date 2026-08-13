@@ -17,13 +17,41 @@
   --font-mono:
     var(--font-geist-mono), ui-monospace, "SF Mono", Menlo, monospace;
   --font-display: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+
   /* ── Spacing & rhythm ───────────────────────── */
   --spacing-section: 8rem;
+
+  /* ── Motion curves ──────────────────────────────
+     Uma única linguagem de movimento para todo o site.
+     `out-expo` para entradas (rápido no início, pousa macio),
+     `out-quint` para hovers, `spring` para microinterações. */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ── Elevation ──────────────────────────────────
+     Sombras em camadas (contato + difusa), tom neutro do ink. */
+  --shadow-subtle:
+    0 1px 2px -1px rgb(10 10 10 / 0.06), 0 2px 6px -2px rgb(10 10 10 / 0.05);
+  --shadow-raised:
+    0 1px 2px -1px rgb(10 10 10 / 0.08), 0 8px 20px -8px rgb(10 10 10 / 0.12),
+    0 20px 40px -20px rgb(10 10 10 / 0.14);
+  --shadow-float:
+    0 2px 4px -2px rgb(10 10 10 / 0.1), 0 16px 32px -12px rgb(10 10 10 / 0.16),
+    0 40px 72px -32px rgb(10 10 10 / 0.2);
+  --shadow-terminal:
+    0 2px 8px -4px rgb(10 10 10 / 0.3), 0 30px 80px -30px rgb(10 10 10 / 0.45);
 
   /* ── Animation ──────────────────────────────── */
   --animate-marquee: marquee 40s linear infinite;
   --animate-blink: blink 1s steps(2) infinite;
+  --animate-aurora: aurora 14s ease-in-out infinite;
+  --animate-sheen: sheen 4.5s ease-in-out infinite;
+  --animate-halo: halo 3s ease-in-out infinite;
 }
+
+/* ══ Keyframes ═══════════════════════════════════ */
 
 @keyframes marquee {
   from {
@@ -45,20 +73,66 @@
   }
 }
 
+/* Entrada padrão: sobe, revela e "foca" (blur → nítido) */
 @keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translateY(14px);
+    filter: blur(6px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
+    filter: blur(0);
   }
 }
 
-/* ── Base ─────────────────────────────────────── */
+/* Respiro lento dos glows da seção escura */
+@keyframes aurora {
+  0%,
+  100% {
+    opacity: 0.75;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translate3d(0, -2%, 0) scale(1.08);
+  }
+}
+
+/* Brilho que atravessa o CTA primário.
+   Percentuais são relativos à largura do próprio brilho (metade do botão),
+   então o curso precisa ser largo o bastante para sair pelos dois lados. */
+@keyframes sheen {
+  0%,
+  62% {
+    transform: translateX(-150%);
+  }
+  92%,
+  100% {
+    transform: translateX(460%);
+  }
+}
+
+/* Pulso do indicador "online" — halo em anel, sem piscar duro */
+@keyframes halo {
+  0% {
+    opacity: 0.55;
+    transform: scale(1);
+  }
+  70%,
+  100% {
+    opacity: 0;
+    transform: scale(2.6);
+  }
+}
+
+/* ══ Base ════════════════════════════════════════ */
+
 html {
   scroll-behavior: smooth;
+  /* Âncoras param abaixo da nav fixa (h-16) com folga */
+  scroll-padding-top: 5.5rem;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -69,6 +143,10 @@ body {
   font-feature-settings: "ss01", "ss02", "cv11";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Nenhum elemento decorativo deve criar scroll horizontal.
+     `clip` em vez de `hidden`: `hidden` transformaria o body num container
+     de rolagem e quebraria o `scroll-padding-top` do html. */
+  overflow-x: clip;
 }
 
 ::selection {
@@ -82,7 +160,35 @@ h2,
 h3 {
   letter-spacing: -0.025em;
   font-feature-settings: "ss01";
+  /* Evita órfãs em quebras de linha automáticas */
+  text-wrap: balance;
 }
+
+p {
+  text-wrap: pretty;
+}
+
+/* ── Foco visível ────────────────────────────────
+   Anel consistente em todo elemento interativo, só no
+   foco por teclado. Duplo anel para funcionar tanto
+   sobre paper quanto sobre ink. */
+:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.on-dark :focus-visible,
+.on-dark:focus-visible {
+  outline-color: var(--color-paper);
+}
+
+/* Nunca mostrar o anel em clique de mouse */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ── Utilitários ─────────────────────────────────── */
 
 /* Hide scrollbar on marquee */
 .no-scrollbar::-webkit-scrollbar {
@@ -92,7 +198,48 @@ h3 {
   scrollbar-width: none;
 }
 
-/* Respect reduced motion */
+/* Grão de filme — quebra o "digital liso" das áreas escuras.
+   SVG inline em data URI: sem request de rede, sem custo de CSP. */
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Link com sublinhado que cresce do início — usado no rodapé/nav */
+.link-underline {
+  position: relative;
+}
+.link-underline::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s var(--ease-out-expo);
+}
+.link-underline:hover::after,
+.link-underline:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* Elementos que animam em scroll — libera a GPU só enquanto é útil */
+.will-reveal {
+  will-change: opacity, transform, filter;
+}
+.will-reveal[data-revealed="true"] {
+  will-change: auto;
+}
+
+/* ── Respeitar redução de movimento ──────────────── */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -101,5 +248,9 @@ h3 {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  html {
+    scroll-behavior: auto;
   }
 }

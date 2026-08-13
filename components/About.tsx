@@ -9,7 +9,7 @@ const FACTS = [
 
 export function About() {
   return (
-    <section id="sobre" className="py-24 sm:py-32 bg-paper">
+    <section id="sobre" className="relative py-24 sm:py-32 bg-paper">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Coluna texto */}
@@ -19,7 +19,7 @@ export function About() {
                 <span className="font-mono text-[11px] tracking-[0.22em] text-smoke">
                   ⌘ SOBRE
                 </span>
-                <span className="h-px w-12 bg-bone" />
+                <span className="h-px w-12 bg-linear-to-r from-bone to-transparent" />
               </div>
 
               <h2 className="font-display text-[clamp(2rem,4.5vw,3.5rem)] font-semibold tracking-tight leading-[1.05] mb-8">
@@ -29,7 +29,7 @@ export function About() {
               </h2>
             </FadeIn>
 
-            <FadeIn delay={100}>
+            <FadeIn delay={120}>
               <div className="space-y-5 text-graphite text-[16.5px] leading-relaxed max-w-2xl">
                 <p>
                   A Lume nasceu em 2022, em Fortaleza, das mãos de{" "}
@@ -51,22 +51,22 @@ export function About() {
           </div>
 
           {/* Coluna fatos */}
-          <FadeIn delay={180} className="lg:col-span-5">
+          <FadeIn delay={200} variant="right" className="lg:col-span-5">
             <aside className="lg:pl-8 lg:border-l border-bone">
               <div className="font-mono text-[11px] tracking-[0.22em] text-smoke mb-7">
                 FICHA TÉCNICA
               </div>
+
               <dl className="divide-y divide-bone">
-                {FACTS.map((f, i) => (
+                {FACTS.map((f) => (
                   <div
                     key={f.k}
-                    className="flex items-baseline justify-between py-4 gap-6 group"
-                    style={{ transitionDelay: `${i * 60}ms` }}
+                    className="group flex items-baseline justify-between gap-6 py-4"
                   >
-                    <dt className="font-mono text-[12px] tracking-wide text-smoke uppercase">
+                    <dt className="font-mono text-[12px] tracking-wide text-smoke uppercase transition-colors duration-400 group-hover:text-graphite">
                       {f.k}
                     </dt>
-                    <dd className="font-display text-lg sm:text-xl font-medium text-ink text-right">
+                    <dd className="font-display text-lg sm:text-xl font-medium text-ink text-right transition-transform duration-500 ease-out-quint group-hover:-translate-x-0.5">
                       {f.v}
                     </dd>
                   </div>
@@ -75,7 +75,10 @@ export function About() {
 
               {/* Assinatura sutil */}
               <div className="mt-10 pt-6 border-t border-bone flex items-center gap-3">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#d7ff1a]" />
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="absolute inset-0 rounded-full bg-signal animate-halo" />
+                  <span className="relative h-1.5 w-1.5 rounded-full bg-signal" />
+                </span>
                 <span className="font-mono text-[11px] tracking-[0.18em] text-smoke">
                   FORTALEZA · CE · BRASIL
                 </span>

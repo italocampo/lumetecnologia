@@ -168,7 +168,7 @@ export default async function Image() {
               fontWeight: 500,
             }}
           >
-            lumetecnologia.com.br
+            lumetecnologiabr.com.br
           </span>
           <div
             style={{

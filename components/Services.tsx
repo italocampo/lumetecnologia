@@ -66,7 +66,7 @@ const SERVICES: Service[] = [
 
 export function Services() {
   return (
-    <section id="servicos" className="py-24 sm:py-32 bg-paper">
+    <section id="servicos" className="relative py-24 sm:py-32 bg-paper">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         {/* Section header */}
         <FadeIn>
@@ -75,7 +75,7 @@ export function Services() {
               <span className="font-mono text-[11px] tracking-[0.22em] text-smoke">
                 ⌘ SERVIÇOS
               </span>
-              <span className="h-px flex-1 bg-bone" />
+              <span className="h-px flex-1 bg-linear-to-r from-bone to-transparent" />
             </div>
             <h2 className="font-display text-[clamp(2rem,4.5vw,3.5rem)] font-semibold tracking-tight leading-[1.02]">
               Quatro maneiras de a Lume
@@ -85,42 +85,55 @@ export function Services() {
           </div>
         </FadeIn>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-bone border border-bone rounded-3xl overflow-hidden">
+        {/* Grid — as bordas são o próprio fundo, vistas pelo gap de 1px */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-bone border border-bone rounded-3xl overflow-hidden shadow-subtle">
           {SERVICES.map((s, i) => (
-            <FadeIn key={s.id} delay={i * 80}>
-              <article className="group bg-paper p-8 sm:p-10 lg:p-12 hover:bg-mist/60 transition-colors duration-300 h-full">
-                <header className="flex items-baseline justify-between mb-8">
-                  <span className="font-mono text-xs tracking-[0.18em] text-ash">
-                    {s.kicker}
-                  </span>
-                  <code className="font-mono text-[11px] tracking-tight text-smoke bg-mist px-2.5 py-1 rounded-full">
-                    {s.command}
-                  </code>
-                </header>
+            <FadeIn key={s.id} delay={i * 90} className="h-full">
+              <article className="group relative bg-paper p-8 sm:p-10 lg:p-12 h-full transition-colors duration-500 ease-out-quint hover:bg-mist/70">
+                {/* Halo diagonal que acende no hover */}
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 ease-out-expo group-hover:opacity-100"
+                  style={{
+                    backgroundImage:
+                      "radial-gradient(120% 90% at 100% 0%, rgba(10,10,10,0.05), transparent 60%)",
+                  }}
+                />
 
-                <h3 className="font-display text-2xl sm:text-[28px] font-semibold tracking-tight leading-tight mb-4">
-                  {s.title}
-                </h3>
+                <div className="relative">
+                  <header className="flex items-baseline justify-between mb-8">
+                    <span className="font-mono text-xs tracking-[0.18em] text-ash transition-colors duration-400 group-hover:text-smoke">
+                      {s.kicker}
+                    </span>
+                    <code className="font-mono text-[11px] tracking-tight text-smoke bg-mist px-2.5 py-1 rounded-full transition-all duration-400 ease-out-quint group-hover:bg-ink group-hover:text-paper">
+                      {s.command}
+                    </code>
+                  </header>
 
-                <p className="text-graphite leading-relaxed mb-7 max-w-md">
-                  {s.desc}
-                </p>
+                  <h3 className="font-display text-2xl sm:text-[28px] font-semibold tracking-tight leading-tight mb-4">
+                    {s.title}
+                  </h3>
 
-                <ul className="space-y-2.5">
-                  {s.bullets.map((b) => (
-                    <li
-                      key={b}
-                      className="flex items-start gap-3 text-[14.5px] text-graphite"
-                    >
-                      <span
-                        aria-hidden
-                        className="mt-2 h-px w-3 shrink-0 bg-ink/70"
-                      />
-                      <span>{b}</span>
-                    </li>
-                  ))}
-                </ul>
+                  <p className="text-graphite leading-relaxed mb-7 max-w-md">
+                    {s.desc}
+                  </p>
+
+                  <ul className="space-y-2.5">
+                    {s.bullets.map((b) => (
+                      <li
+                        key={b}
+                        className="flex items-start gap-3 text-[14.5px] text-graphite"
+                      >
+                        {/* O traço cresce quando o card é focado pelo mouse */}
+                        <span
+                          aria-hidden
+                          className="mt-2 h-px w-3 shrink-0 origin-left bg-ink/70 transition-transform duration-500 ease-out-expo group-hover:scale-x-150"
+                        />
+                        <span>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </article>
             </FadeIn>
           ))}
