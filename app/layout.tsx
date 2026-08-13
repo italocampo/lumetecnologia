@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -59,6 +60,12 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
+        <Script
+          defer
+          src="https://analytics.lumetecnologiabr.com.br/script.js"
+          data-website-id="b187b60f-36f5-465e-ac80-b26ebf79df94"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
