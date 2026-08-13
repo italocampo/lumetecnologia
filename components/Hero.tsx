@@ -62,6 +62,8 @@ export function Hero() {
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
+            data-umami-event="WhatsApp Click"
+            data-umami-event-location="hero"
             className="group inline-flex items-center gap-2 rounded-full bg-ink text-paper px-6 py-3.5 text-sm font-medium hover:bg-graphite transition-all duration-300"
           >
             Começar com a Lume

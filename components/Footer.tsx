@@ -30,7 +30,11 @@ export function Footer() {
           <FooterColumn
             title="Contato"
             links={[
-              { label: "WhatsApp", href: "https://wa.me/5585994108087" },
+              {
+                label: "WhatsApp",
+                href: "https://wa.me/5585994108087",
+                event: "WhatsApp Click",
+              },
               { label: "Email", href: "mailto:lumetecnologia.br@gmail.com" },
               {
                 label: "Instagram",
@@ -53,7 +57,7 @@ export function Footer() {
   );
 }
 
-type Link = { label: string; href: string };
+type Link = { label: string; href: string; event?: string };
 
 function FooterColumn({ title, links }: { title: string; links: Link[] }) {
   return (
@@ -66,6 +70,8 @@ function FooterColumn({ title, links }: { title: string; links: Link[] }) {
           <li key={l.label}>
             <a
               href={l.href}
+              data-umami-event={l.event}
+              data-umami-event-location="footer"
               className="text-[14px] text-ink hover:text-smoke transition-colors"
             >
               {l.label}

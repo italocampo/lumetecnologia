@@ -66,6 +66,8 @@ export function Nav() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
+              data-umami-event="WhatsApp Click"
+              data-umami-event-location="nav-desktop"
               className="hidden md:inline-flex group items-center gap-2 rounded-full bg-ink text-paper px-4 py-2 text-[13px] font-medium hover:bg-graphite transition-colors"
             >
               Falar com a Lume
@@ -155,6 +157,8 @@ export function Nav() {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setOpen(false)}
+            data-umami-event="WhatsApp Click"
+            data-umami-event-location="nav-mobile"
             className="flex items-center justify-center gap-2 rounded-full bg-ink text-paper px-6 py-3.5 text-sm font-medium"
           >
             Falar com a Lume

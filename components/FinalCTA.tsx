@@ -67,6 +67,8 @@ export function FinalCTA() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
+              data-umami-event="WhatsApp Click"
+              data-umami-event-location="final-cta"
               className="group relative inline-flex items-center gap-2.5 rounded-full bg-paper text-ink px-7 py-4 text-sm font-semibold transition-all duration-300 hover:bg-white hover:shadow-[0_0_32px_rgba(215,255,26,0.35)]"
             >
               <WhatsappIcon />
