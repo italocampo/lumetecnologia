@@ -140,6 +140,25 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <head>
+        {/*
+          Por padrão o navegador guarda a posição de rolagem e devolve o
+          visitante nela ao recarregar — o que faz a página abrir no meio,
+          com as animações de entrada do hero já perdidas. Desligamos essa
+          restauração para todo reload começar do topo.
+
+          Precisa ser um script inline no <head>: rodando dentro de um
+          useEffect só valeria depois da hidratação, e o salto já teria
+          acontecido na frente do visitante.
+
+          Não afeta links de âncora (#servicos, #sobre): a rolagem até um
+          fragmento é tratada à parte pelo navegador e continua funcionando.
+        */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `if("scrollRestoration"in history)history.scrollRestoration="manual"`,
+          }}
+        />
+
         {/* Handshake com o Umami antecipado — economiza ~100ms no 1º evento */}
         <link
           rel="preconnect"
