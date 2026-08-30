@@ -165,13 +165,20 @@ export function Terminal() {
 
         {/* Body */}
         <div className="relative px-5 sm:px-7 py-7 font-mono text-[13.5px] sm:text-[14.5px] leading-relaxed min-h-[280px]">
-          {/* Tag rotativa — reanimada a cada consulta via key */}
-          <div
-            key={`tag-${index}`}
-            className="text-[10.5px] tracking-[0.22em] text-white/40 mb-4"
-            style={{ animation: "fadeUp 0.5s var(--ease-out-expo) both" }}
-          >
-            {current.tag}
+          {/* Tag rotativa + selo de simulação.
+              O selo não é decorativo: sem ele, os valores da tela podem ser
+              lidos como o faturamento real de um cliente conectado à Lume. */}
+          <div className="flex items-center justify-between gap-3 mb-4">
+            <div
+              key={`tag-${index}`}
+              className="text-[10.5px] tracking-[0.22em] text-white/40"
+              style={{ animation: "fadeUp 0.5s var(--ease-out-expo) both" }}
+            >
+              {current.tag}
+            </div>
+            <span className="shrink-0 rounded-full border border-white/15 px-2.5 py-1 text-[9.5px] tracking-[0.18em] text-white/45">
+              SIMULAÇÃO
+            </span>
           </div>
 
           {/* Pergunta do usuário */}
@@ -264,7 +271,7 @@ export function Terminal() {
 
       {/* Legenda */}
       <p className="mt-4 text-center font-mono text-[11px] tracking-[0.16em] text-smoke">
-        CONSULTAS REAIS QUE A LUME RESPONDE NO WHATSAPP
+        EXEMPLO DE CONSULTA · NÚMEROS ILUSTRATIVOS
       </p>
     </div>
   );

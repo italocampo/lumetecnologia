@@ -12,13 +12,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: `${BASE_URL}/#servicos`,
+      url: `${BASE_URL}/#solucoes`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: `${BASE_URL}/#clientes`,
+      url: `${BASE_URL}/#cases`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/#como-funciona`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
+    {
+      url: `${BASE_URL}/#seguranca`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.6,

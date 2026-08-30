@@ -23,8 +23,8 @@ export function Footer() {
               <Logo className="h-7 text-ink transition-opacity duration-300 group-hover/logo:opacity-70" />
             </a>
             <p className="mt-5 text-[14px] text-graphite max-w-xs leading-relaxed">
-              Agentes de IA, sistemas e sites que trabalham 24/7 pelo seu
-              negócio.
+              IA, dados e automação para empresas. Atendimento, números e
+              processos funcionando de forma inteligente.
             </p>
             <p className="mt-6 font-mono text-[11px] tracking-[0.18em] text-smoke">
               FORTALEZA · CE · BRASIL

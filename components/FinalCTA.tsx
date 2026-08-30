@@ -47,19 +47,22 @@ export function FinalCTA() {
 
         {/* Headline */}
         <FadeIn delay={90}>
-          <h2 className="font-display text-[clamp(2.25rem,6vw,5rem)] font-semibold tracking-tight leading-[0.98]">
-            Sua empresa precisa
+          {/* A promessa deixou de ser só disponibilidade de atendimento:
+              agora abrange atendimento, dados e processos — que é o que a
+              Lume realmente entrega. */}
+          <h2 className="font-display text-[clamp(2.1rem,5.5vw,4.5rem)] font-semibold tracking-tight leading-[1.02]">
+            Enquanto sua equipe trabalha,
             <br />
-            <span className="text-white/50">estar disponível 24/7.</span>
-            <br />A Lume já está.
+            <span className="text-white/50">a Lume trabalha também.</span>
           </h2>
         </FadeIn>
 
         {/* Subtítulo */}
         <FadeIn delay={180}>
           <p className="mt-8 mx-auto max-w-xl text-white/60 text-[16.5px] leading-relaxed">
-            Conte para a gente o que sua operação precisa. Em uma conversa
-            rápida desenhamos o caminho — IA, sistema, site ou tudo junto.
+            Atendimento, dados e processos funcionando de forma inteligente —
+            todos os dias. Conte o que sua operação precisa e desenhamos o
+            caminho numa conversa rápida.
           </p>
         </FadeIn>
 
@@ -87,7 +90,7 @@ export function FinalCTA() {
                 className="pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 -skew-x-12 bg-ink/5 opacity-0 transition-all duration-700 ease-out-expo group-hover:left-[110%] group-hover:opacity-100"
               />
               <WhatsappIcon />
-              <span className="relative">Falar pelo WhatsApp</span>
+              <span className="relative">Falar com a Lume</span>
               <svg
                 width="14"
                 height="14"

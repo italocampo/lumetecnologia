@@ -1,7 +1,8 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Lume · IA que conversa, sistemas que entregam";
+export const alt =
+  "Lume · IA que entende seu negócio. Automação que faz ele funcionar.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -110,11 +111,13 @@ export default async function Image() {
         {/* Headline principal */}
         <div
           style={{
-            fontSize: "80px",
+            // 56px em vez de 80: a headline nova é bem mais longa e, no
+            // corpo anterior, a segunda linha estourava os 1200px do card.
+            fontSize: "56px",
             fontWeight: 700,
             color: "#fafafa",
             letterSpacing: "-0.03em",
-            lineHeight: 1,
+            lineHeight: 1.12,
             textAlign: "center",
             display: "flex",
             flexDirection: "column",
@@ -122,9 +125,9 @@ export default async function Image() {
             gap: "4px",
           }}
         >
-          <span>Pergunte.</span>
+          <span>IA que entende seu negócio.</span>
           <span style={{ color: "rgba(255,255,255,0.45)" }}>
-            A Lume responde.
+            Automação que faz ele funcionar.
           </span>
         </div>
 
@@ -140,7 +143,7 @@ export default async function Image() {
             display: "flex",
           }}
         >
-          Agentes de IA no WhatsApp · 24h, 7 dias por semana
+          Atendimento, dados e processos · integrados ao WhatsApp
         </div>
 
         {/* URL */}

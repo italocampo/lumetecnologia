@@ -23,12 +23,15 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
-const TITLE = "Lume · Tecnologia com propósito";
+// O título carrega o posicionamento (IA + dados + automação) em vez de uma
+// promessa genérica: é o que aparece na aba, no resultado de busca e no
+// compartilhamento, e precisa responder "o que a Lume faz" sozinho.
+const TITLE = "Lume · IA, dados e automação para empresas";
 const DESCRIPTION =
-  "Agentes de IA que atendem seus clientes e consultam seus dados direto no WhatsApp. 24h, 7 dias por semana. Lume — Fortaleza, Ceará.";
-const SOCIAL_TITLE = "Lume · IA que conversa, sistemas que entregam";
+  "IA, dados e automação para empresas. Atendimento que não para, seus números no WhatsApp e processos que rodam sozinhos. Lume — Fortaleza, Ceará.";
+const SOCIAL_TITLE = "Lume · IA que entende seu negócio";
 const SOCIAL_DESCRIPTION =
-  "Atendimento e dados do seu negócio, no WhatsApp, 24/7. Sistemas sob medida, sites e e-commerces.";
+  "Atendimento, dados e processos transformados em operações inteligentes — integrados ao WhatsApp e aos sistemas que sua empresa já usa.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -39,14 +42,16 @@ export const metadata: Metadata = {
   description: DESCRIPTION,
   applicationName: "Lume",
   keywords: [
-    "IA WhatsApp",
-    "agente de IA",
-    "automação empresarial",
-    "atendimento omnichannel",
+    "IA para empresas",
+    "inteligência artificial para negócios",
+    "automação de processos",
+    "agente de IA no WhatsApp",
+    "consulta de dados por WhatsApp",
+    "atendimento automatizado",
+    "integração de sistemas",
     "sistemas sob medida",
-    "e-commerce",
-    "Ceará",
     "Fortaleza",
+    "Ceará",
   ],
   authors: [{ name: "Lume", url: SITE_URL }],
   creator: "Lume Tecnologia",
@@ -105,8 +110,13 @@ const jsonLd = {
   alternateName: "Lume",
   url: SITE_URL,
   description: DESCRIPTION,
+  slogan: "IA que entende seu negócio. Automação que faz ele funcionar.",
   foundingDate: FOUNDED_YEAR,
-  founder: { "@type": "Person", name: "Italo Campos" },
+  founder: { "@type": "Person", name: "Ítalo Campos" },
+  member: [
+    { "@type": "Person", name: "Ítalo Campos", jobTitle: "Fundador" },
+    { "@type": "Person", name: "Demetrius Linhares", jobTitle: "Sócio" },
+  ],
   taxID: CNPJ,
   email: EMAIL,
   telephone: `+${WHATSAPP_NUMBER}`,
@@ -123,10 +133,10 @@ const jsonLd = {
     "@type": "OfferCatalog",
     name: "Serviços Lume",
     itemListElement: [
-      "Agentes de IA omnichannel",
-      "Consulta de dados por WhatsApp",
-      "Sistemas sob medida",
-      "Sites e e-commerces",
+      "Atendimento com IA no WhatsApp, Instagram e Telegram",
+      "Consulta de dados da empresa em linguagem natural",
+      "Automação de processos e integração de sistemas",
+      "Sistemas, plataformas e e-commerces sob medida",
     ].map((name) => ({
       "@type": "Offer",
       itemOffered: { "@type": "Service", name },

@@ -1,10 +1,12 @@
 import { FadeIn } from "./FadeIn";
+import { FounderPhoto } from "./FounderPhoto";
+import { FOUNDED_YEAR, PEOPLE } from "@/lib/site";
 
 const FACTS = [
-  { k: "Fundada em", v: "2022" },
+  { k: "Fundada em", v: FOUNDED_YEAR },
   { k: "Sede", v: "Fortaleza, CE" },
-  { k: "Fundador", v: "Italo Campos" },
-  { k: "Especialidade", v: "IA & Automação" },
+  ...PEOPLE.map((p) => ({ k: p.role, v: p.name })),
+  { k: "Foco", v: "IA, dados e automação" },
 ];
 
 export function About() {
@@ -33,18 +35,29 @@ export function About() {
               <div className="space-y-5 text-graphite text-[16.5px] leading-relaxed max-w-2xl">
                 <p>
                   A Lume nasceu em 2022, em Fortaleza, das mãos de{" "}
-                  <span className="text-ink font-medium">Italo Campos</span>,
+                  <span className="text-ink font-medium">Ítalo Campos</span>,
                   ainda na graduação em Análise e Desenvolvimento de Sistemas. A
-                  ideia era simples e impopular na época: trazer agentes de IA
-                  úteis de verdade para o WhatsApp do empresário brasileiro —
-                  aquele que ainda tira pedido, fecha estoque e responde cliente
-                  no mesmo aparelho.
+                  ideia era simples e impopular na época: trazer inteligência
+                  artificial útil de verdade para o WhatsApp do empresário
+                  brasileiro — aquele que ainda tira pedido, fecha estoque e
+                  responde cliente no mesmo aparelho.
                 </p>
                 <p>
-                  Hoje, a Lume conversa, consulta, calcula e entrega. Atende
-                  seus clientes, lê seus dados, sugere decisões. Trabalha 24
-                  horas, 7 dias por semana, sem pausa para o café — porque o seu
-                  negócio também não pausa.
+                  De lá para cá a empresa deixou de ser apenas sobre
+                  atendimento. Hoje a Lume conecta dados, automatiza processos e
+                  constrói o que a operação precisa — com um critério que não
+                  mudou:{" "}
+                  <span className="text-ink font-medium">
+                    tecnologia só vale quando resolve um problema real do
+                    negócio.
+                  </span>
+                </p>
+                <p>
+                  A operação é conduzida por Ítalo Campos e seu sócio,{" "}
+                  <span className="text-ink font-medium">
+                    Demetrius Linhares
+                  </span>
+                  . De Fortaleza, para empresas de todo o Brasil.
                 </p>
               </div>
             </FadeIn>
@@ -85,6 +98,45 @@ export function About() {
               </div>
             </aside>
           </FadeIn>
+        </div>
+
+        {/* ── Quem responde pela Lume ──────────────────────
+            Rostos e nomes: o visitante precisa perceber que existe gente
+            respondendo pela entrega, não uma marca sem dono. */}
+        <div className="mt-20 sm:mt-24 pt-14 border-t border-bone">
+          <FadeIn>
+            <div className="font-mono text-[11px] tracking-[0.22em] text-smoke mb-10">
+              QUEM RESPONDE PELA LUME
+            </div>
+          </FadeIn>
+
+          <div className="grid gap-10 sm:grid-cols-2 lg:gap-14 max-w-4xl">
+            {PEOPLE.map((p, i) => (
+              <FadeIn key={p.name} delay={i * 110}>
+                <article className="group flex flex-col gap-6 sm:flex-row sm:items-start">
+                  <div className="w-40 sm:w-36 lg:w-40 shrink-0">
+                    <FounderPhoto
+                      src={p.photo}
+                      initials={p.initials}
+                      name={p.name}
+                    />
+                  </div>
+
+                  <div className="sm:pt-1">
+                    <h3 className="font-display text-xl sm:text-[22px] font-semibold tracking-tight text-ink">
+                      {p.name}
+                    </h3>
+                    <div className="mt-1.5 font-mono text-[11px] tracking-[0.18em] text-smoke">
+                      {p.role.toUpperCase()} · LUME
+                    </div>
+                    <p className="mt-4 text-graphite text-[15px] leading-relaxed">
+                      {p.bio}
+                    </p>
+                  </div>
+                </article>
+              </FadeIn>
+            ))}
+          </div>
         </div>
       </div>
     </section>

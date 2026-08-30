@@ -10,9 +10,39 @@ export const SITE_URL =
 export const SITE_DOMAIN = new URL(SITE_URL).host;
 
 export const WHATSAPP_NUMBER = "5585994108087";
-export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-  "Olá Lume!",
-)}`;
+
+/**
+ * Mensagem que já vai escrita na conversa quando o visitante clica num CTA.
+ *
+ * Um WhatsApp que abre vazio transfere para o lead o trabalho de explicar o
+ * que quer — e é onde a maioria desiste. Cada origem abre a conversa já
+ * dizendo de onde veio e o que procura, o que também dá ao comercial o
+ * contexto do lead antes da primeira resposta.
+ *
+ * Sobre `source=website`: o wa.me descarta qualquer parâmetro além de `text`,
+ * então não há como carregar UTM até a conversa. A origem do clique é medida
+ * pelo Umami, via `data-umami-event-location` em cada CTA — é o mesmo dado,
+ * no lugar onde ele efetivamente pode ser lido.
+ */
+export const WHATSAPP_MESSAGES = {
+  default:
+    "Olá, Lume! Quero conhecer melhor as soluções de IA e automação para minha empresa.",
+  especialista:
+    "Olá, Lume! Gostaria de falar com um especialista sobre IA e automação para minha empresa.",
+  diagnostico:
+    "Olá, Lume! Queria entender o que dá para automatizar na minha operação.",
+} as const;
+
+export type WhatsappContext = keyof typeof WHATSAPP_MESSAGES;
+
+export function whatsappUrl(context: WhatsappContext = "default"): string {
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+    WHATSAPP_MESSAGES[context],
+  )}`;
+}
+
+/** Atalho para o caso mais comum — mantém os componentes legíveis. */
+export const WHATSAPP_URL = whatsappUrl();
 
 export const EMAIL = "lumetecnologia.br@gmail.com";
 export const INSTAGRAM_URL = "https://instagram.com/lumetecnologia.br";
@@ -20,9 +50,30 @@ export const INSTAGRAM_URL = "https://instagram.com/lumetecnologia.br";
 export const CNPJ = "65.967.246/0001-82";
 export const FOUNDED_YEAR = "2022";
 
+/**
+ * Sócios da Lume. `photo` aponta para /public — enquanto o arquivo não
+ * existir, o componente cai no monograma (ver components/Founders.tsx).
+ */
+export const PEOPLE = [
+  {
+    name: "Ítalo Campos",
+    role: "Fundador",
+    initials: "IC",
+    photo: "/italo.jpg",
+    bio: "Fundou a Lume em 2022, ainda na graduação em Análise e Desenvolvimento de Sistemas. Cuida da arquitetura e da inteligência por trás de cada entrega.",
+  },
+  {
+    name: "Demetrius Linhares",
+    role: "Sócio",
+    initials: "DL",
+    photo: "/demetrius.jpg",
+    bio: "Sócio da Lume. Conduz a relação com os clientes e a leitura de negócio que antecede cada projeto.",
+  },
+] as const;
+
 export const NAV_LINKS = [
-  { label: "Serviços", href: "#servicos" },
-  { label: "Clientes", href: "#clientes" },
+  { label: "Soluções", href: "#solucoes" },
+  { label: "Cases", href: "#cases" },
   { label: "Sobre", href: "#sobre" },
   { label: "Contato", href: "#contato" },
 ] as const;

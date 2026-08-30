@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "Lume Tecnologia",
     short_name: "Lume",
     description:
-      "Agentes de IA que atendem seus clientes e consultam seus dados direto no WhatsApp.",
+      "IA, dados e automação para empresas. Atendimento, números e processos funcionando de forma inteligente.",
     lang: "pt-BR",
     start_url: "/",
     display: "standalone",
