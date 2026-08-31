@@ -67,7 +67,7 @@ export const PEOPLE = [
     role: "Sócio",
     initials: "DL",
     photo: "/demetrius.jpg",
-    bio: "Sócio da Lume. Conduz a relação com os clientes e a leitura de negócio que antecede cada projeto.",
+    bio: "Sócio da Lume. Atua no desenvolvimento de sistemas sob medida, ERPs e integrações — a parte da entrega que precisa ser construída do zero.",
   },
 ] as const;
 
