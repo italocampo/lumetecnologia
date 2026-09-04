@@ -1,4 +1,5 @@
 import { FadeIn } from "./FadeIn";
+import { AyvoMark } from "./Logo";
 import { whatsappUrl } from "@/lib/site";
 
 type Case = {
@@ -34,6 +35,21 @@ const FEATURED: Case = {
 };
 
 const CASES: Case[] = [
+  {
+    id: "lcl-medical-center",
+    client: "LCL Medical Center",
+    segment: "Saúde",
+    problem:
+      "A recepção atendia quem estava no balcão e quem chegava pelo WhatsApp ao mesmo tempo — e as mesmas perguntas de horário, convênio e preparo de exame voltavam o dia inteiro. A gestão da clínica, em paralelo, vivia espalhada entre planilhas e sistemas que não conversavam.",
+    solution:
+      "ERP sob medida para a operação da clínica e uma IA de atendimento respondendo pacientes e usuários nos canais que eles já usam — resolvendo o recorrente e passando para a recepção só o que precisa de uma pessoa.",
+    results: [
+      "Recepção livre para quem está no balcão",
+      "Dúvida de paciente respondida fora do horário",
+      "Operação da clínica num sistema só",
+      "Encaminhamento à equipe apenas quando necessário",
+    ],
+  },
   {
     id: "fc-motos",
     client: "FC Motos",
@@ -86,8 +102,9 @@ export function Cases() {
         <FadeIn>
           <div className="mb-14 sm:mb-16 max-w-3xl">
             <div className="flex items-center gap-3 mb-6">
-              <span className="font-mono text-[11px] tracking-[0.22em] text-smoke">
-                ⌘ CASES
+              <span className="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.22em] text-smoke">
+                <AyvoMark className="h-2.25 w-auto" />
+                CASES
               </span>
               <span className="h-px flex-1 bg-linear-to-r from-bone to-transparent" />
             </div>
@@ -161,7 +178,7 @@ export function Cases() {
         </FadeIn>
 
         {/* ── Demais cases ────────────────────────────── */}
-        <div className="mt-6 grid gap-6 lg:grid-cols-3">
+        <div className="mt-6 grid gap-6 md:grid-cols-2">
           {CASES.map((c, i) => (
             <FadeIn key={c.id} delay={i * 90} className="h-full">
               <article className="group h-full flex flex-col rounded-3xl border border-bone bg-paper p-8 sm:p-9 transition-all duration-500 ease-out-quint hover:border-ash/60 hover:shadow-raised hover:-translate-y-1">

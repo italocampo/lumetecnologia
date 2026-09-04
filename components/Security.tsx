@@ -1,4 +1,5 @@
 import { FadeIn } from "./FadeIn";
+import { AyvoMark } from "./Logo";
 
 type Pillar = {
   id: string;
@@ -51,8 +52,9 @@ export function Security() {
           {/* Coluna do argumento */}
           <FadeIn className="lg:col-span-5">
             <div className="flex items-center gap-3 mb-6">
-              <span className="font-mono text-[11px] tracking-[0.22em] text-white/50">
-                ⌘ SEGURANÇA
+              <span className="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.22em] text-white/50">
+                <AyvoMark className="h-2.25 w-auto" />
+                SEGURANÇA
               </span>
               <span className="h-px w-12 bg-linear-to-r from-white/25 to-transparent" />
             </div>

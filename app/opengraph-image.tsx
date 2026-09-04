@@ -77,7 +77,7 @@ export default async function Image() {
           gap: "0px",
         }}
       >
-        {/* Logo — glifo ⌘ + wordmark, com a assinatura da marca embaixo */}
+        {/* Linha da marca + assinatura, acima da headline */}
         <div
           style={{
             display: "flex",

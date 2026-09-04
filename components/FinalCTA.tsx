@@ -1,4 +1,5 @@
 import { FadeIn } from "./FadeIn";
+import { AyvoMark } from "./Logo";
 import { EMAIL, WHATSAPP_URL } from "@/lib/site";
 
 export function FinalCTA() {
@@ -125,8 +126,9 @@ export function FinalCTA() {
 
         {/* Rodapé da seção */}
         <FadeIn delay={360}>
-          <div className="mt-12 font-mono text-[11px] tracking-[0.2em] text-white/30">
-            ⌘ RESPOSTA EM ATÉ 24H ÚTEIS
+          <div className="mt-12 inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.2em] text-white/30">
+            <AyvoMark className="h-2.25 w-auto" />
+            RESPOSTA EM ATÉ 24H ÚTEIS
           </div>
         </FadeIn>
       </div>

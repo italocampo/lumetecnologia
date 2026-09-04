@@ -1,4 +1,5 @@
 import { FadeIn } from "./FadeIn";
+import { AyvoMark } from "./Logo";
 import { FounderPhoto } from "./FounderPhoto";
 import { FOUNDED_YEAR, PEOPLE } from "@/lib/site";
 
@@ -18,8 +19,9 @@ export function About() {
           <div className="lg:col-span-7">
             <FadeIn>
               <div className="flex items-center gap-3 mb-6">
-                <span className="font-mono text-[11px] tracking-[0.22em] text-smoke">
-                  ⌘ SOBRE
+                <span className="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.22em] text-smoke">
+                  <AyvoMark className="h-2.25 w-auto" />
+                  SOBRE
                 </span>
                 <span className="h-px w-12 bg-linear-to-r from-bone to-transparent" />
               </div>

@@ -1,4 +1,5 @@
 import { FadeIn } from "./FadeIn";
+import { AyvoMark } from "./Logo";
 
 type Step = {
   verb: string;
@@ -35,8 +36,9 @@ export function Process() {
         <FadeIn>
           <div className="mb-16 sm:mb-20 max-w-3xl">
             <div className="flex items-center gap-3 mb-6">
-              <span className="font-mono text-[11px] tracking-[0.22em] text-smoke">
-                ⌘ COMO FUNCIONA
+              <span className="inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.22em] text-smoke">
+                <AyvoMark className="h-2.25 w-auto" />
+                COMO FUNCIONA
               </span>
               <span className="h-px flex-1 bg-linear-to-r from-bone to-transparent" />
             </div>
