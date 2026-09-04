@@ -106,7 +106,7 @@ export function Solutions() {
                   className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 ease-out-expo group-hover:opacity-100"
                   style={{
                     backgroundImage:
-                      "radial-gradient(120% 90% at 100% 0%, rgba(10,10,10,0.05), transparent 60%)",
+                      "radial-gradient(120% 90% at 100% 0%, rgba(4,12,21,0.05), transparent 60%)",
                   }}
                 />
 

@@ -2,9 +2,6 @@ import type { NextConfig } from "next";
 
 const isDev = process.env.NODE_ENV === "development";
 
-/** Origem do Umami self-hosted — única origem externa que o site consome. */
-const ANALYTICS_ORIGIN = "https://analytics.lumetecnologiabr.com.br";
-
 /**
  * `upgrade-insecure-requests` só entra quando o deploy declara explicitamente
  * uma origem https. Sem essa trava, rodar `next build && next start` local
@@ -28,15 +25,20 @@ const declaresHttpsOrigin =
  * cenário realista de risco: exfiltração para domínio desconhecido
  * (connect-src), carregamento de script de terceiro (script-src), embed em
  * iframe (frame-ancestors) e sequestro de <base> (base-uri).
+ *
+ * Não há nenhuma origem externa na policy. O Umami self-hosted era a única, e
+ * saiu junto com o serviço: manter o host numa allowlist depois de largar o
+ * domínio é o pior dos dois mundos — ninguém mede nada, e quem registrar o
+ * domínio depois ganha permissão de executar script nesta página.
  */
 const csp = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline' ${isDev ? "'unsafe-eval' " : ""}${ANALYTICS_ORIGIN}`,
+  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""}`,
   "style-src 'self' 'unsafe-inline'",
   // next/font/google baixa as fontes em build → servidas por 'self'
   "font-src 'self' data:",
   "img-src 'self' data: blob:",
-  `connect-src 'self' ${ANALYTICS_ORIGIN}${isDev ? " ws: wss:" : ""}`,
+  `connect-src 'self'${isDev ? " ws: wss:" : ""}`,
   "media-src 'self'",
   "manifest-src 'self'",
   "worker-src 'self' blob:",
@@ -70,7 +72,7 @@ const permissionsPolicy = [
 
 const securityHeaders = [
   { key: "Content-Security-Policy", value: csp },
-  // 2 anos, subdomínios inclusos (analytics já é HTTPS) e elegível a preload
+  // 2 anos, subdomínios inclusos e elegível a preload
   {
     key: "Strict-Transport-Security",
     value: "max-age=63072000; includeSubDomains; preload",

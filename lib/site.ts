@@ -27,9 +27,13 @@ export const WHATSAPP_NUMBER = "5585994108087";
  * contexto do lead antes da primeira resposta.
  *
  * Sobre `source=website`: o wa.me descarta qualquer parâmetro além de `text`,
- * então não há como carregar UTM até a conversa. A origem do clique é medida
- * pelo Umami, via `data-umami-event-location` em cada CTA — é o mesmo dado,
- * no lugar onde ele efetivamente pode ser lido.
+ * então não há como carregar UTM até a conversa. A origem do clique fica
+ * marcada em cada CTA por `data-umami-event-location`.
+ *
+ * Hoje nada lê esses atributos: o Umami self-hosted foi cancelado e o site
+ * está sem analytics. Os marcadores ficaram de propósito — são inertes, e
+ * evitam ter que reinstrumentar sete componentes no dia em que entrar
+ * qualquer instância nova.
  */
 export const WHATSAPP_MESSAGES = {
   default:

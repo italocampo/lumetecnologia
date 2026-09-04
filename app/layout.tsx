@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import Script from "next/script";
 import {
   CNPJ,
   EMAIL,
@@ -168,13 +167,6 @@ export default function RootLayout({
             __html: `if("scrollRestoration"in history)history.scrollRestoration="manual"`,
           }}
         />
-
-        {/* Handshake com o Umami antecipado — economiza ~100ms no 1º evento */}
-        <link
-          rel="preconnect"
-          href="https://analytics.lumetecnologiabr.com.br"
-          crossOrigin="anonymous"
-        />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {/* Atalho de teclado: primeiro Tab da página pula a navegação */}
@@ -191,15 +183,6 @@ export default function RootLayout({
           type="application/ld+json"
           // Conteúdo estático definido acima; sem entrada de usuário.
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-
-        <Script
-          defer
-          src="https://analytics.lumetecnologiabr.com.br/script.js"
-          data-website-id="b187b60f-36f5-465e-ac80-b26ebf79df94"
-          strategy="afterInteractive"
-          crossOrigin="anonymous"
-          referrerPolicy="strict-origin-when-cross-origin"
         />
       </body>
     </html>

@@ -53,7 +53,7 @@ export function Problem() {
         className="pointer-events-none absolute inset-0"
         style={{
           backgroundImage:
-            "radial-gradient(ellipse 60% 45% at 50% 100%, rgba(255,255,255,0.045), transparent 70%)",
+            "radial-gradient(ellipse 60% 45% at 50% 100%, rgba(167,204,228,0.065), transparent 70%)",
         }}
       />
 

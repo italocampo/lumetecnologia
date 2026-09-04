@@ -122,7 +122,7 @@ export function Terminal() {
         className="pointer-events-none absolute -inset-x-8 -bottom-6 h-24 -z-10 blur-2xl opacity-60"
         style={{
           backgroundImage:
-            "radial-gradient(ellipse 60% 100% at 50% 0%, rgba(10,10,10,0.22), transparent 70%)",
+            "radial-gradient(ellipse 60% 100% at 50% 0%, rgba(4,12,21,0.22), transparent 70%)",
         }}
       />
 

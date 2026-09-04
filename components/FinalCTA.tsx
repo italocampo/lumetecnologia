@@ -24,7 +24,7 @@ export function FinalCTA() {
         className="absolute inset-0 pointer-events-none"
         style={{
           backgroundImage:
-            "radial-gradient(ellipse 40% 30% at 50% -10%, rgba(255,255,255,0.04), transparent 70%)",
+            "radial-gradient(ellipse 40% 30% at 50% -10%, rgba(167,204,228,0.06), transparent 70%)",
         }}
       />
 
