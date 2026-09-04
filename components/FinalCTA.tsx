@@ -14,7 +14,7 @@ export function FinalCTA() {
         className="absolute inset-0 pointer-events-none animate-aurora"
         style={{
           backgroundImage:
-            "radial-gradient(ellipse 70% 50% at 50% 110%, rgba(215,255,26,0.07), transparent 70%)",
+            "radial-gradient(ellipse 70% 50% at 50% 110%, rgba(167,204,228,0.10), transparent 70%)",
         }}
       />
 
@@ -81,7 +81,7 @@ export function FinalCTA() {
                 "group relative inline-flex items-center gap-2.5 overflow-hidden rounded-full",
                 "bg-paper text-ink px-7 py-4 text-sm font-semibold",
                 "transition-all duration-400 ease-out-quint",
-                "hover:bg-white hover:-translate-y-0.5 hover:shadow-[0_0_38px_rgba(215,255,26,0.32)]",
+                "hover:bg-white hover:-translate-y-0.5 hover:shadow-[0_0_38px_rgba(167,204,228,0.34)]",
                 "active:translate-y-0 active:scale-[0.98]",
               ].join(" ")}
             >

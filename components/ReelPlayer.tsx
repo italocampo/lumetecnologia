@@ -68,7 +68,7 @@ export function ReelPlayer() {
         className="pointer-events-none absolute inset-0"
         style={{
           backgroundImage:
-            "radial-gradient(ellipse 90% 80% at 50% 45%, transparent 55%, rgba(10,10,10,0.28) 100%)",
+            "radial-gradient(ellipse 90% 80% at 50% 45%, transparent 55%, rgba(4,12,21,0.28) 100%)",
         }}
       />
 

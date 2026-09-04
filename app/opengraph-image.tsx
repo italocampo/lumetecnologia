@@ -13,7 +13,7 @@ export default async function Image() {
       style={{
         width: "1200px",
         height: "630px",
-        background: "#0a0a0a",
+        background: "#040c15",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -33,7 +33,7 @@ export default async function Image() {
           width: "600px",
           height: "300px",
           background:
-            "radial-gradient(ellipse at center, rgba(215,255,26,0.12) 0%, transparent 70%)",
+            "radial-gradient(ellipse at center, rgba(167,204,228,0.16) 0%, transparent 70%)",
           display: "flex",
         }}
       />
@@ -48,7 +48,7 @@ export default async function Image() {
           width: "800px",
           height: "200px",
           background:
-            "radial-gradient(ellipse at center, rgba(215,255,26,0.08) 0%, transparent 70%)",
+            "radial-gradient(ellipse at center, rgba(167,204,228,0.11) 0%, transparent 70%)",
           display: "flex",
         }}
       />
@@ -99,7 +99,7 @@ export default async function Image() {
                 width: "10px",
                 height: "10px",
                 borderRadius: "50%",
-                background: "#d7ff1a",
+                background: "#a7cce4",
                 display: "flex",
               }}
             />
@@ -145,7 +145,7 @@ export default async function Image() {
             // corpo anterior, a segunda linha estourava os 1200px do card.
             fontSize: "56px",
             fontWeight: 700,
-            color: "#fafafa",
+            color: "#f7fafc",
             letterSpacing: "-0.03em",
             lineHeight: 1.12,
             textAlign: "center",
@@ -197,7 +197,7 @@ export default async function Image() {
             style={{
               fontSize: "15px",
               letterSpacing: "0.18em",
-              color: "#d7ff1a",
+              color: "#a7cce4",
               fontWeight: 500,
             }}
           >

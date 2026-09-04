@@ -14,17 +14,18 @@ const MIN_NODES = 26;
 const MAX_NODES = 90;
 
 /**
- * Campo de nós conectados — a profundidade do espelho traduzida para o
- * preto-e-branco do site.
+ * Campo de nós conectados — a profundidade do espelho, no matiz da marca.
  *
  * O espelho puxava uma linha de cada partícula até o cursor, o que desenha um
  * leque girando atrás do conteúdo e rouba o olho da headline. Aqui as ligações
  * são entre vizinhos: o desenho é a rede, não o ponteiro. O cursor só clareia
  * quem está por perto — reage sem virar o assunto.
  *
- * Desenha em branco puro com alfa baixo, então só funciona sobre superfície
- * `bg-ink`. Fica sob o conteúdo; quem usa precisa dar `relative` ao pai e ao
- * conteúdo que vem depois.
+ * Desenha no brilho do chevron (#a7cce4) com alfa baixo, e não em branco:
+ * sobre o navy do ink, branco puro faria os nós lerem como poeira neutra em
+ * cima da paleta, em vez de luz da própria marca. Só funciona sobre `bg-ink`.
+ * Fica sob o conteúdo; quem usa precisa dar `relative` ao pai e ao conteúdo
+ * que vem depois.
  */
 export function Constellation({ className = "" }: { className?: string }) {
   const ref = useRef<HTMLCanvasElement>(null);
@@ -124,7 +125,7 @@ export function Constellation({ className = "" }: { className?: string }) {
           if (d2 > LINK * LINK) continue;
           // Some na distância máxima em vez de cortar duro.
           const t = 1 - d2 / (LINK * LINK);
-          ctx!.strokeStyle = `rgba(255,255,255,${(t * 0.1).toFixed(3)})`;
+          ctx!.strokeStyle = `rgba(167,204,228,${(t * 0.12).toFixed(3)})`;
           ctx!.beginPath();
           ctx!.moveTo(a.x, a.y);
           ctx!.lineTo(b.x, b.y);
@@ -136,7 +137,7 @@ export function Constellation({ className = "" }: { className?: string }) {
         const dx = n.x - px;
         const dy = n.y - py;
         const near = Math.max(0, 1 - (dx * dx + dy * dy) / (HALO * HALO));
-        ctx!.fillStyle = `rgba(255,255,255,${(0.16 + near * 0.42).toFixed(3)})`;
+        ctx!.fillStyle = `rgba(167,204,228,${(0.2 + near * 0.46).toFixed(3)})`;
         ctx!.beginPath();
         ctx!.arc(n.x, n.y, n.r + near * 0.6, 0, Math.PI * 2);
         ctx!.fill();

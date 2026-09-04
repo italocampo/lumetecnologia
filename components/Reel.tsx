@@ -28,7 +28,7 @@ export function Reel() {
       id="projetos"
       className="relative grain on-dark py-24 sm:py-32 bg-ink text-paper overflow-hidden"
     >
-      {/* Campo de nós — a profundidade do espelho, em preto e branco */}
+      {/* Campo de nós — a profundidade do espelho, no matiz da marca */}
       <Constellation />
 
       {/* Luz rasante na borda superior, igual à do CTA final */}
@@ -43,7 +43,7 @@ export function Reel() {
         className="pointer-events-none absolute inset-0"
         style={{
           backgroundImage:
-            "radial-gradient(ellipse 65% 50% at 50% 8%, rgba(255,255,255,0.05), transparent 70%)",
+            "radial-gradient(ellipse 65% 50% at 50% 8%, rgba(167,204,228,0.07), transparent 70%)",
         }}
       />
 

@@ -13,7 +13,7 @@ export function Hero() {
         className="absolute inset-0 -z-10 opacity-[0.35] [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_72%)]"
         style={{
           backgroundImage:
-            "linear-gradient(to right, #00000010 1px, transparent 1px), linear-gradient(to bottom, #00000010 1px, transparent 1px)",
+            "linear-gradient(to right, #040c1512 1px, transparent 1px), linear-gradient(to bottom, #040c1512 1px, transparent 1px)",
           backgroundSize: "48px 48px",
         }}
       />

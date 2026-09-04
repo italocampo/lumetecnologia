@@ -132,7 +132,7 @@ export function Cases() {
               className="pointer-events-none absolute inset-0"
               style={{
                 backgroundImage:
-                  "radial-gradient(ellipse 55% 45% at 85% 0%, rgba(215,255,26,0.06), transparent 70%)",
+                  "radial-gradient(ellipse 55% 45% at 85% 0%, rgba(167,204,228,0.09), transparent 70%)",
               }}
             />
 

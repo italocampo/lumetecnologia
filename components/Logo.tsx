@@ -6,7 +6,9 @@ type LogoProps = {
 
 /**
  * Logo da AYVO — o monograma "A" + wordmark "AYVO".
- * Usa currentColor para herdar a cor do contexto (B&W em qualquer tema).
+ * Usa currentColor: a marca herda a cor do contexto — ink sobre superfície
+ * clara, paper sobre a escura — em vez de carregar o gradiente metálico do
+ * arquivo original, que não sobrevive a 17px nem inverte de fundo.
  *
  * O wordmark é caixa alta, e por isso leva tracking positivo: o negativo que
  * servia a um nome de caixa mista fecha o espaço entre versais e faz as
