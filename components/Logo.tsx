@@ -5,13 +5,17 @@ type LogoProps = {
 };
 
 /**
- * Logo da Lume — glifo ⌘ (command) + wordmark "Lume".
+ * Logo da AYVO — glifo ⌘ (command) + wordmark "AYVO".
  * Usa currentColor para herdar a cor do contexto (B&W em qualquer tema).
+ *
+ * O wordmark é caixa alta, e por isso leva tracking positivo: o negativo que
+ * servia a um nome de caixa mista fecha o espaço entre versais e faz as
+ * hastes do A, Y e V colidirem nos tamanhos pequenos da nav.
  */
 export function Logo({
   className = "h-7",
   showWordmark = true,
-  ariaLabel = "Lume",
+  ariaLabel = "AYVO",
 }: LogoProps) {
   return (
     <span
@@ -21,8 +25,8 @@ export function Logo({
     >
       <CommandGlyph className="h-full w-auto" />
       {showWordmark && (
-        <span className="font-display text-[1.05em] font-semibold tracking-tight leading-none">
-          Lume
+        <span className="font-display text-[1.05em] font-semibold tracking-[0.06em] leading-none">
+          AYVO
         </span>
       )}
     </span>

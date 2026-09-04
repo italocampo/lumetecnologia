@@ -1,8 +1,9 @@
 import { ImageResponse } from "next/og";
+import { SITE_DOMAIN, TAGLINE } from "@/lib/site";
 
 export const runtime = "edge";
 export const alt =
-  "Lume · IA que entende seu negócio. Automação que faz ele funcionar.";
+  "AYVO · IA que entende seu negócio. Automação que faz ele funcionar.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -76,35 +77,64 @@ export default async function Image() {
           gap: "0px",
         }}
       >
-        {/* Logo — glifo ⌘ + wordmark */}
+        {/* Logo — glifo ⌘ + wordmark, com a assinatura da marca embaixo */}
         <div
           style={{
             display: "flex",
+            flexDirection: "column",
             alignItems: "center",
-            gap: "14px",
             marginBottom: "40px",
           }}
         >
-          {/* Dot verde-sinal */}
           <div
             style={{
-              width: "10px",
-              height: "10px",
-              borderRadius: "50%",
-              background: "#d7ff1a",
               display: "flex",
-            }}
-          />
-          <span
-            style={{
-              fontSize: "18px",
-              letterSpacing: "0.22em",
-              color: "rgba(255,255,255,0.5)",
-              fontWeight: 400,
-              textTransform: "uppercase",
+              alignItems: "center",
+              gap: "14px",
             }}
           >
-            LUME · FORTALEZA · CE
+            {/* Dot verde-sinal */}
+            <div
+              style={{
+                width: "10px",
+                height: "10px",
+                borderRadius: "50%",
+                background: "#d7ff1a",
+                display: "flex",
+              }}
+            />
+            <span
+              style={{
+                fontSize: "18px",
+                letterSpacing: "0.22em",
+                color: "rgba(255,255,255,0.5)",
+                fontWeight: 400,
+                textTransform: "uppercase",
+              }}
+            >
+              AYVO · FORTALEZA · CE
+            </span>
+          </div>
+
+          {/*
+            A assinatura fica mais apagada que a linha da marca acima e bem
+            menor que a headline abaixo: as três precisam ler como marca →
+            assinatura → oferta, e não como dois subtítulos disputando.
+          */}
+          <span
+            style={{
+              marginTop: "14px",
+              fontSize: "21px",
+              letterSpacing: "0.02em",
+              // Acima da linha de localização (0.5 em 18px) a assinatura ficaria
+              // competindo; muito abaixo dela, uma linha maior e mais apagada
+              // lê como sobra. 0.44 em 21px mantém o peso ótico equivalente.
+              color: "rgba(255,255,255,0.44)",
+              fontWeight: 400,
+              display: "flex",
+            }}
+          >
+            {TAGLINE}
           </span>
         </div>
 
@@ -171,7 +201,7 @@ export default async function Image() {
               fontWeight: 500,
             }}
           >
-            lumetecnologiabr.com.br
+            {SITE_DOMAIN}
           </span>
           <div
             style={{

@@ -25,11 +25,11 @@ const geistMono = Geist_Mono({
 
 // O título carrega o posicionamento (IA + dados + automação) em vez de uma
 // promessa genérica: é o que aparece na aba, no resultado de busca e no
-// compartilhamento, e precisa responder "o que a Lume faz" sozinho.
-const TITLE = "Lume · IA, dados e automação para empresas";
+// compartilhamento, e precisa responder "o que a AYVO faz" sozinho.
+const TITLE = "AYVO · IA, dados e automação para empresas";
 const DESCRIPTION =
-  "IA, dados e automação para empresas. Atendimento que não para, seus números no WhatsApp e processos que rodam sozinhos. Lume — Fortaleza, Ceará.";
-const SOCIAL_TITLE = "Lume · IA que entende seu negócio";
+  "IA, dados e automação para empresas. Atendimento que não para, seus números no WhatsApp e processos que rodam sozinhos. AYVO — Fortaleza, Ceará.";
+const SOCIAL_TITLE = "AYVO · IA que entende seu negócio";
 const SOCIAL_DESCRIPTION =
   "Atendimento, dados e processos transformados em operações inteligentes — integrados ao WhatsApp e aos sistemas que sua empresa já usa.";
 
@@ -37,10 +37,10 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: TITLE,
-    template: "%s · Lume",
+    template: "%s · AYVO",
   },
   description: DESCRIPTION,
-  applicationName: "Lume",
+  applicationName: "AYVO",
   keywords: [
     "IA para empresas",
     "inteligência artificial para negócios",
@@ -53,16 +53,16 @@ export const metadata: Metadata = {
     "Fortaleza",
     "Ceará",
   ],
-  authors: [{ name: "Lume", url: SITE_URL }],
-  creator: "Lume Tecnologia",
-  publisher: "Lume Tecnologia",
+  authors: [{ name: "AYVO", url: SITE_URL }],
+  creator: "AYVO Tecnologia",
+  publisher: "AYVO Tecnologia",
   alternates: { canonical: "/" },
   category: "technology",
   openGraph: {
     title: SOCIAL_TITLE,
     description: SOCIAL_DESCRIPTION,
     url: SITE_URL,
-    siteName: "Lume",
+    siteName: "AYVO",
     locale: "pt_BR",
     type: "website",
   },
@@ -98,7 +98,7 @@ export const viewport: Viewport = {
 };
 
 /**
- * Dados estruturados (schema.org) — ajudam o Google a mostrar a Lume como
+ * Dados estruturados (schema.org) — ajudam o Google a mostrar a AYVO como
  * organização real: nome, CNPJ, localização, canais de contato e serviços.
  * Conteúdo 100% estático e controlado por nós.
  */
@@ -106,8 +106,8 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   "@id": `${SITE_URL}/#organization`,
-  name: "Lume Tecnologia",
-  alternateName: "Lume",
+  name: "AYVO Tecnologia",
+  alternateName: "AYVO",
   url: SITE_URL,
   description: DESCRIPTION,
   slogan: "IA que entende seu negócio. Automação que faz ele funcionar.",
@@ -131,7 +131,7 @@ const jsonLd = {
   knowsLanguage: ["pt-BR"],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "Serviços Lume",
+    name: "Serviços AYVO",
     itemListElement: [
       "Atendimento com IA no WhatsApp, Instagram e Telegram",
       "Consulta de dados da empresa em linguagem natural",

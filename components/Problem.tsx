@@ -8,7 +8,7 @@ type Gap = {
 
 /**
  * Gargalos, não serviços. A seção existe para o visitante se reconhecer
- * antes de saber o que a Lume vende — é o "problema" da hierarquia
+ * antes de saber o que a AYVO vende — é o "problema" da hierarquia
  * problema → solução → prova.
  */
 const GAPS: Gap[] = [

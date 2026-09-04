@@ -46,7 +46,7 @@ export function Hero() {
         {/*
           O H1 carrega o posicionamento (IA + automação para negócios), que é
           o que precisa ser lido em 10 segundos e o que o Google indexa.
-          "Pergunte. A Lume responde." não se perdeu: virou a chamada da
+          "Pergunte. A AYVO responde." não se perdeu: virou a chamada da
           demonstração, logo acima do terminal, onde a frase descreve
           literalmente o que está acontecendo na tela.
         */}
@@ -97,7 +97,7 @@ export function Hero() {
               aria-hidden
               className="pointer-events-none absolute inset-y-0 -left-full w-1/2 skew-x-12 bg-linear-to-r from-transparent via-white/18 to-transparent animate-sheen"
             />
-            <span className="relative">Quero conhecer a Lume</span>
+            <span className="relative">Quero conhecer a AYVO</span>
             <svg
               width="14"
               height="14"
@@ -148,7 +148,7 @@ export function Hero() {
           style={{ animation: "fadeUp 0.9s var(--ease-out-expo) 0.42s both" }}
         >
           <p className="mb-7 text-center font-display text-[19px] sm:text-[22px] font-medium tracking-tight text-ink">
-            Pergunte. <span className="text-smoke">A Lume responde.</span>
+            Pergunte. <span className="text-smoke">A AYVO responde.</span>
           </p>
           <Terminal />
         </div>

@@ -4,8 +4,15 @@
  * de WhatsApp aqui muda em todos os CTAs de uma vez.
  */
 
+/**
+ * Assinatura da marca — acompanha o wordmark no rodapé e no card social.
+ * Fica aqui, e não solta em cada componente, porque é o tipo de frase que
+ * muda por decisão de marca e precisa mudar nos dois lugares ao mesmo tempo.
+ */
+export const TAGLINE = "Inteligência que transforma";
+
 export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://lumetecnologiabr.com.br";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://ayvotecnologia.com.br";
 
 export const SITE_DOMAIN = new URL(SITE_URL).host;
 
@@ -26,11 +33,11 @@ export const WHATSAPP_NUMBER = "5585994108087";
  */
 export const WHATSAPP_MESSAGES = {
   default:
-    "Olá, Lume! Quero conhecer melhor as soluções de IA e automação para minha empresa.",
+    "Olá, AYVO! Quero conhecer melhor as soluções de IA e automação para minha empresa.",
   especialista:
-    "Olá, Lume! Gostaria de falar com um especialista sobre IA e automação para minha empresa.",
+    "Olá, AYVO! Gostaria de falar com um especialista sobre IA e automação para minha empresa.",
   diagnostico:
-    "Olá, Lume! Queria entender o que dá para automatizar na minha operação.",
+    "Olá, AYVO! Queria entender o que dá para automatizar na minha operação.",
 } as const;
 
 export type WhatsappContext = keyof typeof WHATSAPP_MESSAGES;
@@ -44,14 +51,14 @@ export function whatsappUrl(context: WhatsappContext = "default"): string {
 /** Atalho para o caso mais comum — mantém os componentes legíveis. */
 export const WHATSAPP_URL = whatsappUrl();
 
-export const EMAIL = "lumetecnologia.br@gmail.com";
-export const INSTAGRAM_URL = "https://instagram.com/lumetecnologia.br";
+export const EMAIL = "contato@ayvotecnologia.com.br";
+export const INSTAGRAM_URL = "https://instagram.com/ayvotecnologia";
 
 export const CNPJ = "65.967.246/0001-82";
 export const FOUNDED_YEAR = "2022";
 
 /**
- * Sócios da Lume. `photo` aponta para /public — enquanto o arquivo não
+ * Sócios da AYVO. `photo` aponta para /public — enquanto o arquivo não
  * existir, o componente cai no monograma (ver components/Founders.tsx).
  */
 export const PEOPLE = [
@@ -60,14 +67,14 @@ export const PEOPLE = [
     role: "Fundador",
     initials: "IC",
     photo: "/italo.jpg",
-    bio: "Fundou a Lume em 2022, ainda na graduação em Análise e Desenvolvimento de Sistemas. Cuida da arquitetura e da inteligência por trás de cada entrega.",
+    bio: "Fundou a AYVO em 2022, ainda na graduação em Análise e Desenvolvimento de Sistemas. Cuida da arquitetura e da inteligência por trás de cada entrega.",
   },
   {
     name: "Demetrius Linhares",
     role: "Sócio",
     initials: "DL",
     photo: "/demetrius.jpg",
-    bio: "Sócio da Lume. Atua no desenvolvimento de sistemas sob medida, ERPs e integrações — a parte da entrega que precisa ser construída do zero.",
+    bio: "Sócio da AYVO. Atua no desenvolvimento de sistemas sob medida, ERPs e integrações — a parte da entrega que precisa ser construída do zero.",
   },
 ] as const;
 

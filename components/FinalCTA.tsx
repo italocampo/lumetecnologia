@@ -49,11 +49,11 @@ export function FinalCTA() {
         <FadeIn delay={90}>
           {/* A promessa deixou de ser só disponibilidade de atendimento:
               agora abrange atendimento, dados e processos — que é o que a
-              Lume realmente entrega. */}
+              AYVO realmente entrega. */}
           <h2 className="font-display text-[clamp(2.1rem,5.5vw,4.5rem)] font-semibold tracking-tight leading-[1.02]">
             Enquanto sua equipe trabalha,
             <br />
-            <span className="text-white/50">a Lume trabalha também.</span>
+            <span className="text-white/50">a AYVO trabalha também.</span>
           </h2>
         </FadeIn>
 
@@ -90,7 +90,7 @@ export function FinalCTA() {
                 className="pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 -skew-x-12 bg-ink/5 opacity-0 transition-all duration-700 ease-out-expo group-hover:left-[110%] group-hover:opacity-100"
               />
               <WhatsappIcon />
-              <span className="relative">Falar com a Lume</span>
+              <span className="relative">Falar com a AYVO</span>
               <svg
                 width="14"
                 height="14"

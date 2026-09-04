@@ -125,7 +125,7 @@ export function Nav() {
         <nav className="mx-auto max-w-7xl px-6 lg:px-10 h-16 flex items-center justify-between">
           <a
             href="#top"
-            aria-label="Lume — início"
+            aria-label="AYVO — início"
             onClick={close}
             className="group/logo rounded-md"
           >
@@ -183,7 +183,7 @@ export function Nav() {
                 "active:translate-y-0 active:scale-[0.98]",
               ].join(" ")}
             >
-              Falar com a Lume
+              Falar com a AYVO
               <svg
                 width="12"
                 height="12"
@@ -335,7 +335,7 @@ export function Nav() {
               opacity: open ? 1 : 0,
             }}
           >
-            Falar com a Lume
+            Falar com a AYVO
           </a>
         </div>
       </div>

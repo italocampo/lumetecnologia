@@ -86,7 +86,7 @@ export function Solutions() {
               <span className="h-px flex-1 bg-linear-to-r from-bone to-transparent" />
             </div>
             <h2 className="font-display text-[clamp(2rem,4.5vw,3.5rem)] font-semibold tracking-tight leading-[1.02]">
-              Quatro coisas que a Lume
+              Quatro coisas que a AYVO
               <br />
               <span className="text-smoke">resolve na sua operação.</span>
             </h2>
@@ -150,7 +150,7 @@ export function Solutions() {
         </div>
 
         {/* CTA de meio de página — o visitante convencido aqui não deveria
-            ter de rolar até o rodapé para encontrar como falar com a Lume. */}
+            ter de rolar até o rodapé para encontrar como falar com a AYVO. */}
         <FadeIn delay={120}>
           <div className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
             <p className="text-graphite text-[15.5px]">

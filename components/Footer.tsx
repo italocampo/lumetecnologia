@@ -4,6 +4,7 @@ import {
   EMAIL,
   INSTAGRAM_URL,
   NAV_LINKS,
+  TAGLINE,
   WHATSAPP_NUMBER,
 } from "@/lib/site";
 
@@ -17,12 +18,23 @@ export function Footer() {
           <div className="col-span-2 sm:col-span-2">
             <a
               href="#top"
-              aria-label="Lume — início"
+              aria-label="AYVO — início"
               className="group/logo inline-block rounded-md"
             >
               <Logo className="h-7 text-ink transition-opacity duration-300 group-hover/logo:opacity-70" />
             </a>
-            <p className="mt-5 text-[14px] text-graphite max-w-xs leading-relaxed">
+
+            {/*
+              Assinatura da marca — fica colada no wordmark, e não junto do
+              parágrafo, porque é parte do logo e não da descrição. O peso
+              médio em `ink` separa a frase da copy em `graphite` logo abaixo;
+              nos dois em cinza, as linhas se leriam como um bloco só.
+            */}
+            <p className="mt-3 text-[13.5px] font-medium text-ink tracking-[0.005em]">
+              {TAGLINE}
+            </p>
+
+            <p className="mt-4 text-[14px] text-graphite max-w-xs leading-relaxed">
               IA, dados e automação para empresas. Atendimento, números e
               processos funcionando de forma inteligente.
             </p>
@@ -57,7 +69,7 @@ export function Footer() {
 
         <div className="mt-14 pt-6 border-t border-bone flex flex-col sm:flex-row items-center justify-between gap-3 text-[12px] text-smoke">
           <span className="font-mono tracking-wide">
-            © {year} LUME · TODOS OS DIREITOS RESERVADOS
+            © {year} AYVO · TODOS OS DIREITOS RESERVADOS
           </span>
           <span className="font-mono tracking-wide">CNPJ {CNPJ}</span>
         </div>

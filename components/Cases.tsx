@@ -94,7 +94,7 @@ export function Cases() {
             <h2 className="font-display text-[clamp(2rem,4.5vw,3.5rem)] font-semibold tracking-tight leading-[1.02]">
               Empresas que já operam
               <br />
-              <span className="text-smoke">com a Lume por perto.</span>
+              <span className="text-smoke">com a AYVO por perto.</span>
             </h2>
           </div>
         </FadeIn>

@@ -1,6 +1,6 @@
-# Lume — Site institucional
+# AYVO — Site institucional
 
-Landing one-page institucional da Lume, construída em **Next.js 15 + TypeScript + Tailwind v4**, com identidade B&W minimalista e elemento de assinatura próprio (terminal ao vivo simulando consultas que a IA responde no WhatsApp).
+Landing one-page institucional da AYVO Tecnologia, construída em **Next.js 15 + TypeScript + Tailwind v4**, com identidade B&W minimalista e elemento de assinatura próprio (terminal ao vivo simulando consultas que a IA responde no WhatsApp).
 
 ## 🧱 Stack
 
@@ -32,13 +32,13 @@ Recomendado rodar com PM2 + Nginx reverso. Versão enxuta:
 
 ```bash
 # Na VPS
-git clone <seu-repo> /var/www/lume
-cd /var/www/lume
+git clone <seu-repo> /var/www/ayvo
+cd /var/www/ayvo
 pnpm install --prod=false
 pnpm build
 
 # PM2
-pm2 start "pnpm start" --name lume
+pm2 start "pnpm start" --name ayvo
 pm2 save
 pm2 startup
 ```
@@ -47,7 +47,7 @@ Nginx (snippet):
 
 ```nginx
 server {
-  server_name lume.com.br www.lume.com.br;
+  server_name ayvotecnologia.com.br www.ayvotecnologia.com.br;
 
   location / {
     proxy_pass http://127.0.0.1:3000;
@@ -60,7 +60,7 @@ server {
 }
 ```
 
-Depois rode `certbot --nginx -d lume.com.br -d www.lume.com.br` para HTTPS.
+Depois rode `certbot --nginx -d ayvotecnologia.com.br -d www.ayvotecnologia.com.br` para HTTPS.
 
 ## ✏️ O que trocar antes de subir
 
@@ -79,7 +79,7 @@ Busque por estes pontos no projeto e atualize:
 ## 🗂️ Estrutura
 
 ```
-lume-site/
+ayvo-site/
 ├── app/
 │   ├── globals.css        ← tokens Tailwind v4 + base
 │   ├── layout.tsx         ← fontes Geist + metadados SEO
@@ -104,7 +104,8 @@ lume-site/
 ## 🎨 Decisões de design
 
 - **B&W estrito**: tinta `#0A0A0A`, papel `#FAFAFA`, grafite `#161616`, fumo `#737373`, osso `#E5E5E5`.
-- **Único ponto de cor**: o verde-sinal `#D7FF1A` aparece *só* em indicadores de status (online, pulse, glow do CTA final). Funciona como "luz" — referência ao nome _Lume_.
+- **Único ponto de cor**: o verde-sinal `#D7FF1A` aparece *só* em indicadores de status (online, pulse, glow do CTA final). É a cor do "está rodando agora" — reservá-la a sinais de atividade é o que a mantém legível; usada em botão ou título, viraria decoração e perderia o significado.
+- **Assinatura**: "Inteligência que transforma" acompanha o wordmark no rodapé e no card social (`lib/site.ts` → `TAGLINE`). Não é headline: as seções continuam vendendo a oferta, não a frase.
 - **Tipografia**: Geist Sans (display + body) + Geist Mono (códigos, eyebrows, tags). A mono dialoga diretamente com o glifo ⌘ do logo.
 - **Signature element**: o terminal no hero rotaciona 5 consultas reais (`faturamento`, `curva-abc`, `estoque`, `projeção`, `cliente`). Mostra o produto fazendo, não falando.
 - **Sem dependência de animação**: tudo via CSS keyframes e setTimeout — bundle minúsculo.

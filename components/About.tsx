@@ -34,7 +34,7 @@ export function About() {
             <FadeIn delay={120}>
               <div className="space-y-5 text-graphite text-[16.5px] leading-relaxed max-w-2xl">
                 <p>
-                  A Lume nasceu em 2022, em Fortaleza, das mãos de{" "}
+                  A AYVO nasceu em 2022, em Fortaleza, das mãos de{" "}
                   <span className="text-ink font-medium">Ítalo Campos</span>,
                   ainda na graduação em Análise e Desenvolvimento de Sistemas. A
                   ideia era simples e impopular na época: trazer inteligência
@@ -44,7 +44,7 @@ export function About() {
                 </p>
                 <p>
                   De lá para cá a empresa deixou de ser apenas sobre
-                  atendimento. Hoje a Lume conecta dados, automatiza processos e
+                  atendimento. Hoje a AYVO conecta dados, automatiza processos e
                   constrói o que a operação precisa — com um critério que não
                   mudou:{" "}
                   <span className="text-ink font-medium">
@@ -100,13 +100,13 @@ export function About() {
           </FadeIn>
         </div>
 
-        {/* ── Quem responde pela Lume ──────────────────────
+        {/* ── Quem responde pela AYVO ──────────────────────
             Rostos e nomes: o visitante precisa perceber que existe gente
             respondendo pela entrega, não uma marca sem dono. */}
         <div className="mt-20 sm:mt-24 pt-14 border-t border-bone">
           <FadeIn>
             <div className="font-mono text-[11px] tracking-[0.22em] text-smoke mb-10">
-              QUEM RESPONDE PELA LUME
+              QUEM RESPONDE PELA AYVO
             </div>
           </FadeIn>
 
@@ -127,7 +127,7 @@ export function About() {
                       {p.name}
                     </h3>
                     <div className="mt-1.5 font-mono text-[11px] tracking-[0.18em] text-smoke">
-                      {p.role.toUpperCase()} · LUME
+                      {p.role.toUpperCase()} · AYVO
                     </div>
                     <p className="mt-4 text-graphite text-[15px] leading-relaxed">
                       {p.bio}

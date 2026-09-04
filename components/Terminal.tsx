@@ -148,7 +148,7 @@ export function Terminal() {
           </div>
 
           <div className="font-mono text-[10.5px] tracking-[0.18em] text-white/45">
-            LUME · WHATSAPP
+            AYVO · WHATSAPP
           </div>
 
           <div className="flex items-center gap-1.5">
@@ -167,7 +167,7 @@ export function Terminal() {
         <div className="relative px-5 sm:px-7 py-7 font-mono text-[13.5px] sm:text-[14.5px] leading-relaxed min-h-[280px]">
           {/* Tag rotativa + selo de simulação.
               O selo não é decorativo: sem ele, os valores da tela podem ser
-              lidos como o faturamento real de um cliente conectado à Lume. */}
+              lidos como o faturamento real de um cliente conectado à AYVO. */}
           <div className="flex items-center justify-between gap-3 mb-4">
             <div
               key={`tag-${index}`}
@@ -195,7 +195,7 @@ export function Terminal() {
             </p>
           </div>
 
-          {/* Resposta da Lume */}
+          {/* Resposta da AYVO */}
           <div
             className={[
               "mt-5 pl-6 transition-all duration-700 ease-out-expo",
@@ -219,7 +219,7 @@ export function Terminal() {
               >
                 <path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z" />
               </svg>
-              LUME
+              AYVO
             </div>
 
             {current.a.map((line, i) => (

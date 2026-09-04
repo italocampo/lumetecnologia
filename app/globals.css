@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  /* ── Lume color tokens ─────────────────────── */
+  /* ── AYVO color tokens ─────────────────────── */
   --color-ink: #0a0a0a;
   --color-paper: #fafafa;
   --color-graphite: #161616;
