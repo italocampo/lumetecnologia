@@ -253,6 +253,179 @@ p {
   will-change: auto;
 }
 
+/* ══ Camada cinematográfica ══════════════════════════
+   Três recursos, e só três: profundidade por scroll, luz que reage ao
+   cursor, e o trilho do processo se desenhando. Movimento dirigido, não
+   decorado — efeito espalhado em tudo cansa e denuncia amadorismo.
+
+   Tudo aqui é progressive enhancement. As animações de scroll usam
+   `animation-timeline`, que roda fora da main thread e não custa JS; onde
+   o navegador não suporta, a página fica exatamente como está hoje, com o
+   FadeIn cuidando das entradas. Por isso nada aqui pode ser essencial
+   para ler o conteúdo. */
+
+@property --sx {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+@property --sy {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+
+/* ── Luz que segue o cursor ───────────────────────
+   Um círculo com blur, movido só por `transform` — composto na GPU, sem
+   repaint. A alternativa óbvia (mover o centro de um radial-gradient)
+   repinta a superfície inteira a cada quadro e derruba o frame rate em
+   card grande. As variáveis chegam de components/Spotlight.tsx. */
+.cine-light {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 420px;
+  height: 420px;
+  margin: -210px 0 0 -210px;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate3d(var(--sx), var(--sy), 0);
+  transition: opacity 0.45s var(--ease-out-quint);
+  background: radial-gradient(
+    circle closest-side,
+    rgba(167, 204, 228, 0.16),
+    transparent 100%
+  );
+}
+[data-lit="true"] .cine-light {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    /* ── Profundidade: camadas decorativas derivam em ritmos diferentes
+       enquanto a página rola. É o que dá sensação de câmera se movendo,
+       em vez de imagem plana deslizando. Só em elementos decorativos —
+       texto que se move com o scroll atrapalha a leitura. */
+    .cine-drift-slow,
+    .cine-drift-fast {
+      animation: cine-drift linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 100vh;
+      will-change: transform;
+    }
+    .cine-drift-slow {
+      --drift: -5%;
+    }
+    .cine-drift-fast {
+      --drift: -14%;
+    }
+
+    /* ── Trilho do processo se desenhando ─────────
+       O percurso avança conforme o visitante avança. A seção fala de um
+       processo em cinco etapas; a linha crescendo é a própria informação,
+       não enfeite.
+
+       O trilho segue a passagem do CONTAINER pela tela, via timeline
+       nomeada, e não a dele próprio: no desktop ele é uma linha de 1px de
+       altura, e uma timeline `view()` própria se resolveria em poucos
+       pixels de scroll — a linha apareceria pronta. */
+    .cine-track {
+      view-timeline-name: --process;
+    }
+    .cine-rail {
+      transform-origin: top center;
+      animation: cine-draw-y linear both;
+      animation-timeline: --process;
+      animation-range: cover 12% cover 52%;
+    }
+
+    /* ── Etapa acendendo ao ser alcançada ─────────
+       Faixa em `cover`, não em `entry`: o marcador tem 19px, então sua
+       fase de entrada dura 19px de rolagem e o acender passaria batido.
+       Em `cover`, a faixa é a travessia inteira da tela — aqui, entre 30%
+       e 50%, que é o marcador cruzando o miolo inferior do viewport. */
+    .cine-step-ring,
+    .cine-step-dot,
+    .cine-step-num {
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: view();
+      animation-range: cover 30% cover 50%;
+    }
+    .cine-step-ring {
+      animation-name: cine-step-ring;
+    }
+    .cine-step-dot {
+      animation-name: cine-step-dot;
+    }
+    .cine-step-num {
+      animation-name: cine-step-num;
+    }
+
+    @media (width >= 64rem) {
+      .cine-rail {
+        transform-origin: left center;
+        animation-name: cine-draw-x;
+      }
+    }
+  }
+}
+
+@keyframes cine-drift {
+  to {
+    transform: translate3d(0, var(--drift), 0);
+  }
+}
+
+@keyframes cine-draw-y {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes cine-draw-x {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes cine-step-ring {
+  from {
+    border-color: var(--color-bone);
+  }
+  to {
+    border-color: var(--color-ink);
+  }
+}
+
+@keyframes cine-step-dot {
+  from {
+    background-color: var(--color-ash);
+    transform: scale(1);
+  }
+  to {
+    background-color: var(--color-ink);
+    transform: scale(1.4);
+  }
+}
+
+@keyframes cine-step-num {
+  from {
+    color: var(--color-ash);
+  }
+  to {
+    color: var(--color-ink);
+  }
+}
+
 /* ── Respeitar redução de movimento ──────────────── */
 @media (prefers-reduced-motion: reduce) {
   *,

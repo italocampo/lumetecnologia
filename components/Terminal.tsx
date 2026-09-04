@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { Spotlight } from "./Spotlight";
 
 type QA = {
   q: string;
@@ -133,6 +134,9 @@ export function Terminal() {
         onFocus={() => setPaused(true)}
         onBlur={() => setPaused(false)}
       >
+        {/* Luz seguindo o cursor — some em toque e em reduced-motion */}
+        <Spotlight />
+
         {/* Brilho de topo — luz raspando a borda superior, estilo vidro */}
         <div
           aria-hidden

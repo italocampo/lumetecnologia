@@ -7,10 +7,10 @@ export function Hero() {
       id="top"
       className="relative pt-32 pb-24 sm:pt-40 sm:pb-32 overflow-hidden"
     >
-      {/* Grid de fundo — desvanece nas bordas com máscara radial */}
+      {/* Grid de fundo — plano mais distante, deriva devagar no scroll */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 opacity-[0.35] [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_72%)]"
+        className="cine-drift-slow absolute inset-0 -z-10 opacity-[0.35] [mask-image:radial-gradient(ellipse_at_center,black_20%,transparent_72%)]"
         style={{
           backgroundImage:
             "linear-gradient(to right, #040c1512 1px, transparent 1px), linear-gradient(to bottom, #040c1512 1px, transparent 1px)",
@@ -18,10 +18,11 @@ export function Hero() {
         }}
       />
 
-      {/* Spotlight — clareia o miolo e dá profundidade ao grid */}
+      {/* Spotlight — plano à frente da grade; deriva mais rápido, e é a
+          diferença entre os dois ritmos que lê como profundidade */}
       <div
         aria-hidden
-        className="absolute inset-x-0 top-0 -z-10 h-[70%] pointer-events-none"
+        className="cine-drift-fast absolute inset-x-0 top-0 -z-10 h-[70%] pointer-events-none"
         style={{
           backgroundImage:
             "radial-gradient(ellipse 60% 55% at 50% 18%, rgba(255,255,255,0.9), transparent 70%)",

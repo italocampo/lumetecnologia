@@ -55,10 +55,23 @@ export function Process() {
           no mobile. É o que faz cinco blocos serem lidos como um processo e
           não como cinco features soltas.
         */}
-        <div className="relative">
+        <div className="cine-track relative">
           <span
             aria-hidden
             className="pointer-events-none absolute left-[9px] top-2 bottom-2 w-px bg-linear-to-b from-bone via-bone to-transparent lg:left-0 lg:right-0 lg:top-[9px] lg:bottom-auto lg:h-px lg:w-auto lg:bg-linear-to-r lg:from-bone lg:via-bone lg:to-transparent"
+          />
+
+          {/*
+            Trilho de progresso por cima do trilho apagado: cresce conforme a
+            seção atravessa a tela, então o percurso se desenha enquanto o
+            visitante percorre as etapas. Onde o navegador não anima por
+            scroll, este span simplesmente não aparece (fica em scale 0 só
+            sob a regra .cine-rail) — o trilho apagado abaixo continua
+            sustentando a leitura sozinho.
+          */}
+          <span
+            aria-hidden
+            className="cine-rail pointer-events-none absolute left-[9px] top-2 bottom-2 w-px origin-top scale-y-0 bg-linear-to-b from-ink to-ink/15 lg:left-0 lg:right-0 lg:top-[9px] lg:bottom-auto lg:h-px lg:w-auto lg:origin-left lg:scale-y-100 lg:scale-x-0 lg:bg-linear-to-r lg:from-ink lg:to-ink/15"
           />
 
           <ol className="relative grid gap-10 lg:grid-cols-5 lg:gap-6">
@@ -66,15 +79,22 @@ export function Process() {
               <FadeIn key={s.verb} delay={i * 80}>
                 <li className="group relative flex gap-5 lg:block">
                   {/* Marcador sobre o trilho */}
+                  {/*
+                    O `group-hover` continua aqui de propósito: é o
+                    comportamento de quem não tem animação por scroll. Onde
+                    ela existe, a animação vence o hover na cascata e a etapa
+                    passa a acender ao ser alcançada — que é melhor, porque
+                    não depende de o visitante passar o mouse por cima.
+                  */}
                   <span
                     aria-hidden
-                    className="relative z-10 mt-0.5 flex h-[19px] w-[19px] shrink-0 items-center justify-center rounded-full border border-bone bg-paper transition-all duration-500 ease-out-expo group-hover:border-ink"
+                    className="cine-step-ring relative z-10 mt-0.5 flex h-[19px] w-[19px] shrink-0 items-center justify-center rounded-full border border-bone bg-paper transition-all duration-500 ease-out-expo group-hover:border-ink"
                   >
-                    <span className="h-1.5 w-1.5 rounded-full bg-ash transition-colors duration-500 group-hover:bg-ink" />
+                    <span className="cine-step-dot h-1.5 w-1.5 rounded-full bg-ash transition-colors duration-500 group-hover:bg-ink" />
                   </span>
 
                   <div className="lg:mt-6 lg:pr-4">
-                    <div className="font-mono text-[11px] tracking-[0.18em] text-ash mb-2 transition-colors duration-400 group-hover:text-smoke">
+                    <div className="cine-step-num font-mono text-[11px] tracking-[0.18em] text-ash mb-2 transition-colors duration-400 group-hover:text-smoke">
                       {String(i + 1).padStart(2, "0")}
                     </div>
                     <h3 className="font-display text-xl sm:text-[22px] font-semibold tracking-tight text-ink mb-2.5">

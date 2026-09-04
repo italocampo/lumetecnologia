@@ -1,5 +1,6 @@
 import { FadeIn } from "./FadeIn";
 import { AyvoMark } from "./Logo";
+import { Spotlight } from "./Spotlight";
 import { EMAIL, WHATSAPP_URL } from "@/lib/site";
 
 export function FinalCTA() {
@@ -8,6 +9,9 @@ export function FinalCTA() {
       id="contato"
       className="relative grain on-dark py-28 sm:py-36 bg-ink text-paper overflow-hidden"
     >
+      {/* Luz seguindo o cursor */}
+      <Spotlight />
+
       {/* Glow base — respira lentamente, sem chamar atenção */}
       <div
         aria-hidden

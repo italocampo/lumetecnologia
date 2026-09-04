@@ -1,5 +1,6 @@
 import { FadeIn } from "./FadeIn";
 import { AyvoMark } from "./Logo";
+import { Spotlight } from "./Spotlight";
 import { whatsappUrl } from "@/lib/site";
 
 type Case = {
@@ -121,6 +122,9 @@ export function Cases() {
             estabelece a hierarquia sem precisar de selo "destaque". */}
         <FadeIn>
           <article className="relative grain on-dark rounded-3xl bg-ink text-paper overflow-hidden shadow-float">
+            {/* Luz seguindo o cursor */}
+            <Spotlight />
+
             {/* Luz rasante no topo do card */}
             <div
               aria-hidden
